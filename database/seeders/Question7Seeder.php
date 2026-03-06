@@ -91,6 +91,5 @@ class Question7Seeder extends Seeder
                 ]);
             }
         }
-
     }
 }

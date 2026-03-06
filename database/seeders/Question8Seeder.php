@@ -7,6 +7,7 @@ use App\Models\QuestionOption;
 use App\Models\Subtest;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class Question8Seeder extends Seeder
 {
@@ -24,7 +25,7 @@ class Question8Seeder extends Seeder
             'd' => 'group1_08_a.png',
             'e' => 'group1_08_a.png',
         ];
-  
+
         $questions = [
             ['question' => '137.png', 'options' => $group_options, 'answer' => 'b'], // ← sesuaikan jawaban
             ['question' => '138.png', 'options' => $group_options, 'answer' => 'a'], // ← sesuaikan jawaban

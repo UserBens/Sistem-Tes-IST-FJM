@@ -1,194 +1,138 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Identitas Peserta</title>
-    <style>
-        /* Font & Reset */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #eef2f7;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 520px;
-            margin: 60px auto;
-            padding: 40px 30px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 10px;
-            color: #1f2937;
-            font-size: 26px;
-        }
-
-        .subtitle {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 14px;
-            color: #6b7280;
-        }
-
-        /* Progress Bar */
-        .progress-bar {
-            height: 8px;
-            background: #d1d5db;
-            border-radius: 4px;
-            margin-bottom: 30px;
-            overflow: hidden;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            width: 25%; /* bisa diubah sesuai langkah */
-            background: #4a90e2;
-            transition: width 0.3s ease;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 600;
-            color: #374151;
-        }
-
-        input[type="text"],
-        input[type="date"],
-        select {
-            width: 100%;
-            padding: 12px 14px;
-            border-radius: 8px;
-            border: 1px solid #cbd5e1;
-            font-size: 15px;
-            transition: all 0.2s;
-            background: #f9fafb;
-        }
-
-        input:focus,
-        select:focus {
-            border-color: #4a90e2;
-            box-shadow: 0 0 0 2px rgba(74,144,226,0.2);
-            outline: none;
-            background: #fff;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 14px;
-            background: #4a90e2;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            margin-top: 10px;
-        }
-
-        .submit-btn:hover {
-            background: #3571c3;
-            transform: translateY(-2px);
-        }
-
-        .error {
-            color: #dc2626;
-            font-size: 13px;
-            margin-top: 4px;
-        }
-
-        /* Info Box */
-        .info-box {
-            background: #f0f9ff;
-            border-left: 4px solid #4a90e2;
-            padding: 12px 15px;
-            border-radius: 6px;
-            font-size: 13px;
-            color: #1e40af;
-            margin-bottom: 25px;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .container {
-                padding: 30px 20px;
-                margin: 40px 10px;
-            }
-
-            h2 {
-                font-size: 22px;
-            }
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <h2>Form Identitas Peserta</h2>
-        <div class="subtitle">Silakan isi data diri dengan benar sebelum memulai tes.</div>
 
-        <!-- Progress Bar -->
-        <div class="progress-bar">
-            <div class="progress-bar-fill"></div>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-95 min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-2xl">
+        <div class="bg-white rounded-2xl shadow-xl p-8">
+
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-indigo-600 rounded-full mb-4">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5.121 17.804A9 9 0 1118.9 6.121 9 9 0 015.12 17.804z" />
+                    </svg>
+                </div>
+
+                <h1 class="text-2xl font-bold text-gray-800">
+                    Form Identitas Peserta
+                </h1>
+
+                <p class="text-gray-600 mt-2">
+                    Isi data diri sebelum memulai tes IST FJM
+                </p>
+            </div>
+
+            <!-- Progress -->
+            <div class="mb-6">
+                <div class="flex justify-between text-xs text-gray-500 mb-1">
+                    <span>Identitas</span>
+                    <span>Instruksi</span>
+                    <span>Soal</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div class="bg-indigo-600 h-2 rounded-full w-1/3"></div>
+                </div>
+            </div>
+
+            <!-- Info Box -->
+            <div class="mb-6 p-4 bg-blue-50 border border-blue-200 text-blue-700 rounded-lg text-sm">
+                Pastikan data yang Anda masukkan sesuai dengan data yang terdaftar di sistem.
+            </div>
+
+            <form action="{{ route('participant.store') }}" method="POST">
+                @csrf
+
+                <!-- Form Grid 2 kolom -->
+                <div class="grid grid-cols-2 gap-x-5 gap-y-5 mb-5">
+
+                    <!-- Nama Lengkap (full width) -->
+                    <div class="col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Nama Lengkap
+                        </label>
+                        <input type="text" name="name" value="{{ old('name') }}"
+                            class="w-full px-4 py-3 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-300 transition"
+                            placeholder="Contoh: Budi Santoso">
+                        @error('name')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <!-- Tempat Lahir -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Tempat Lahir
+                        </label>
+                        <input type="text" name="birth_place" value="{{ old('birth_place') }}"
+                            class="w-full px-4 py-3 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-300 transition"
+                            placeholder="Contoh: Surabaya">
+                        @error('birth_place')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <!-- Tanggal Lahir -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Tanggal Lahir
+                        </label>
+                        <input type="date" name="birth_date" value="{{ old('birth_date') }}"
+                            class="w-full px-4 py-3 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-300 transition">
+                        @error('birth_date')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <!-- Jenis Kelamin (full width) -->
+                    <div class="col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Jenis Kelamin
+                        </label>
+                        <select name="gender"
+                            class="w-full px-4 py-3 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-300 transition">
+                            <option value="">-- Pilih Jenis Kelamin --</option>
+                            <option value="Laki-laki" {{ old('gender') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki
+                            </option>
+                            <option value="Perempuan" {{ old('gender') == 'Perempuan' ? 'selected' : '' }}>Perempuan
+                            </option>
+                        </select>
+                        @error('gender')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                </div>
+
+                <!-- Button -->
+                <button type="submit"
+                    class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold
+                       hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300
+                       transition duration-200">
+                    Lanjut ke Tes
+                </button>
+
+            </form>
+
+            <!-- Logout -->
+            <form action="{{ route('logout') }}" method="POST" class="mt-4 text-center">
+                @csrf
+                <button class="text-sm text-red-500 hover:text-red-700">
+                    Logout
+                </button>
+            </form>
+
         </div>
-
-        <!-- Info Box -->
-        <div class="info-box">
-            Pastikan data yang Anda masukkan sesuai dengan data yang terdaftar di sistem Kanto.
-        </div>
-
-        {{-- <form action="{{ route('participant.validate') }}" method="POST">
-            @csrf --}}
-
-            <div class="form-group">
-                <label for="name">Nama Lengkap</label>
-                <input type="text" name="name" id="name" placeholder="Contoh: Budi Santoso" value="{{ old('name') }}">
-                @error('name')
-                    <div class="error">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                <label for="birth_place">Tempat Lahir</label>
-                <input type="text" name="birth_place" id="birth_place" placeholder="Contoh: Surabaya" value="{{ old('birth_place') }}">
-                @error('birth_place')
-                    <div class="error">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                <label for="birth_date">Tanggal Lahir</label>
-                <input type="date" name="birth_date" id="birth_date" value="{{ old('birth_date') }}">
-                @error('birth_date')
-                    <div class="error">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                <label for="gender">Jenis Kelamin</label>
-                <select name="gender" id="gender">
-                    <option value="">-- Pilih Jenis Kelamin --</option>
-                    <option value="Laki-laki" {{ old('gender') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-                    <option value="Perempuan" {{ old('gender') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
-                </select>
-                @error('gender')
-                    <div class="error">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <button type="submit" class="submit-btn">Lanjut ke Tes</button>
-        {{-- </form> --}}
     </div>
+
 </body>
+
 </html>

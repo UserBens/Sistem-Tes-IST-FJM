@@ -7,6 +7,7 @@ use App\Models\QuestionOption;
 use App\Models\Subtest;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class Question1Seeder extends Seeder
 {
@@ -15,6 +16,7 @@ class Question1Seeder extends Seeder
      */
     public function run(): void
     {
+
         $subtest = Subtest::where('order', 1)->first();
 
         $questions = [

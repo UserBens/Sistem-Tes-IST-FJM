@@ -5,175 +5,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $subtest->subtest_name }}</title>
-    <style>
-        /* Reset & Font */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f7f8fa;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .subtest-title {
-            text-align: center;
-            font-size: 28px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 30px;
-        }
-
-        .instruction {
-            background: #e8f0fe;
-            padding: 20px;
-            border-left: 5px solid #4a90e2;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            color: #333;
-            line-height: 1.5;
-        }
-
-        .question {
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #f4f5f7;
-            border-radius: 8px;
-            transition: transform 0.2s;
-        }
-
-        .question:hover {
-            transform: translateY(-2px);
-        }
-
-        .question-title {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 15px;
-            color: #222;
-        }
-
-        .option {
-            margin-bottom: 12px;
-        }
-
-        .option label {
-            display: flex;
-            align-items: center;
-            background: #fff;
-            padding: 12px 15px;
-            border-radius: 6px;
-            border: 1px solid #d1d5db;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .option label:hover {
-            background: #e2f0ff;
-            border-color: #4a90e2;
-        }
-
-        .option input[type="radio"],
-        .option input[type="checkbox"] {
-            margin-right: 12px;
-        }
-
-        .submit-btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background: #4a90e2;
-            color: #fff;
-            font-size: 16px;
-            font-weight: 500;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s;
-            margin-top: 20px;
-        }
-
-        .submit-btn:hover {
-            background: #3571c3;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .question-title {
-                font-size: 16px;
-            }
-
-            .option label {
-                padding: 10px;
-            }
-
-            .submit-btn {
-                width: 100%;
-                text-align: center;
-            }
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    <div class="container">
+<body class="bg-gradient-to-br from-blue-50 to-indigo-95 min-h-screen flex items-center justify-center p-4">
 
-        <div class="subtest-title">{{ $subtest->subtest_name }}</div>
+    <div class="w-full max-w-2xl">
+        <div class="bg-white rounded-2xl shadow-xl p-8">
 
-        {{-- @if ($subtest->instruction)
-            <div class="instruction">
-                {{ $subtest->instruction }}
-            </div>
-        @endif --}}
-
-        {{-- <form action="{{ route('subtest.submit', $subtest->id) }}" method="POST"> --}}
-        @csrf
-
-        @foreach ($subtest->questions as $index => $question)
-            <div class="question">
-                <div class="question-title">
-
-                    {{-- Cek apakah question berisi path gambar atau teks biasa --}}
-                    @if (Str::endsWith($question->question, ['.png', '.jpg', '.jpeg', '.webp']))
-                        <img src="{{ asset('storage/' . $question->question) }}" alt="Soal {{ $index + 1 }}">
-                    @else
-                        {{ $question->question }}
-                    @endif
-
-                    @if ($question->question_type == 'multiple_choice')
-                        <span style="font-size: 12px; color: #555;"></span>
-                    @endif
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-indigo-600 rounded-full mb-4">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                 </div>
 
-                @foreach ($question->options as $option)
-                    <div class="option">
-                        <label>
-                            <input type="{{ $question->question_type == 'multiple_choice' ? 'checkbox' : 'radio' }}"
-                                name="question_{{ $question->id }}{{ $question->question_type == 'multiple_choice' ? '[]' : '' }}"
-                                value="{{ $option->id }}">
+                <h1 class="text-2xl font-bold text-gray-800">
+                    {{ $subtest->subtest_name }}
+                </h1>
 
-                            {{-- Tampilkan gambar jika option_image ada, tampilkan teks jika tidak --}}
-                            @if ($option->option_image)
-                                <img src="{{ asset('storage/' . $option->option_image) }}" alt="Pilihan">
+                <p class="text-gray-600 mt-2">
+                    Pilih jawaban yang paling tepat untuk setiap soal
+                </p>
+            </div>
+
+            <!-- Progress -->
+            <div class="mb-6">
+                <div class="flex justify-between text-xs text-gray-500 mb-1">
+                    <span>Identitas</span>
+                    <span>Instruksi</span>
+                    <span>Soal</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div class="bg-indigo-600 h-2 rounded-full w-full"></div>
+                </div>
+            </div>
+
+            <!-- Timer Box -->
+            <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center justify-between">
+                <div class="flex items-center gap-2 text-red-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-sm font-medium">Sisa waktu:</span>
+                </div>
+                <span id="timer" class="text-2xl font-bold text-red-600 tabular-nums">--:--</span>
+            </div>
+
+            <!-- Info Box -->
+            <div class="mb-6 p-4 bg-blue-50 border border-blue-200 text-blue-700 rounded-lg text-sm">
+                Jawab semua soal dengan teliti. Tes akan otomatis dikumpulkan saat waktu habis.
+            </div>
+
+            {{-- <form action="{{ route('subtest.submit', $subtest->id) }}" method="POST"> --}}
+            @csrf
+
+            <!-- Questions -->
+            <div class="space-y-6 mb-8">
+                @foreach ($subtest->questions as $index => $question)
+                    <div class="p-5 border border-gray-200 rounded-xl bg-gray-50">
+
+                        <!-- Question Number + Text -->
+                        <div class="mb-4">
+                            <span
+                                class="inline-flex items-center justify-center w-7 h-7 bg-indigo-600 text-white text-xs font-bold rounded-full mr-2">
+                                {{ $index + 1 }}
+                            </span>
+
+                            @if (Str::endsWith($question->question, ['.png', '.jpg', '.jpeg', '.webp']))
+                                <img src="{{ asset('storage/' . $question->question) }}" alt="Soal {{ $index + 1 }}"
+                                    class="mt-3 rounded-lg border border-gray-200 max-w-full">
                             @else
-                                {{ $option->option_text }}
+                                <span class="text-gray-800 font-medium text-sm leading-relaxed">
+                                    {{ $question->question }}
+                                </span>
                             @endif
-                        </label>
+                        </div>
+
+                        <!-- Options -->
+                        <div class="space-y-2 mt-3">
+                            @foreach ($question->options as $option)
+                                <label
+                                    class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 bg-white
+                                              hover:border-indigo-400 hover:bg-indigo-50 cursor-pointer transition duration-150
+                                              has-[:checked]:border-indigo-500 has-[:checked]:bg-indigo-50">
+
+                                    <input
+                                        type="{{ $question->question_type == 'multiple_choice' ? 'checkbox' : 'radio' }}"
+                                        name="question_{{ $question->id }}{{ $question->question_type == 'multiple_choice' ? '[]' : '' }}"
+                                        value="{{ $option->id }}" class="accent-indigo-600 w-4 h-4 shrink-0">
+
+                                    @if ($option->option_image)
+                                        <img src="{{ asset('storage/' . $option->option_image) }}" alt="Pilihan"
+                                            class="max-h-16 object-contain rounded">
+                                    @else
+                                        <span class="text-sm text-gray-700">{{ $option->option_text }}</span>
+                                    @endif
+                                </label>
+                            @endforeach
+                        </div>
+
                     </div>
                 @endforeach
             </div>
-        @endforeach
 
-        <button type="submit" class="submit-btn">Kirim Jawaban</button>
-        {{-- </form> --}}
+            <!-- Submit Button -->
+            <button type="submit"
+                class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold
+                       hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300
+                       transition duration-200">
+                Kirim Jawaban
+            </button>
 
+            {{-- </form> --}}
+
+        </div>
     </div>
+
+    <script>
+        let timeLeft = 10;
+        const timerElement = document.getElementById("timer");
+
+        const countdown = setInterval(function() {
+
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            timerElement.textContent = minutes + ":" + seconds;
+
+            timeLeft--;
+
+            if (timeLeft < 0) {
+
+                clearInterval(countdown);
+
+                let nextSubtest = {{ $subtest->order + 1 }};
+
+                window.location.href = "/subtests/" + nextSubtest + "/questions";
+
+            }
+
+        }, 1000);
+    </script>
+
 </body>
 
 </html>

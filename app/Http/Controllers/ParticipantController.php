@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Participants;
+use App\Models\Subtest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ParticipantController extends Controller
 {
@@ -12,22 +15,34 @@ class ParticipantController extends Controller
         return view('form-participant.index');
     }
 
-    // Simpan data
     public function store(Request $request)
     {
+        // Validasi input
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'name'        => 'required|string|max:255',
             'birth_place' => 'required|string|max:255',
-            'birth_date' => 'required|date',
-            'gender' => 'required|in:Laki-laki,Perempuan',
+            'birth_date'  => 'required|date',
+            'gender'      => 'required|in:Laki-laki,Perempuan',
         ]);
 
-        // $participant = Participant::create($validated);
+        // Ambil api_user_id dari session yang disimpan saat login
+        $validated['api_user_id'] = Session::get('api_user_id');
 
-        // Simpan participant_id di session untuk dipakai saat tes
-        // session(['participant_id' => $participant->id]);
+        // Simpan data participant
+        $participant = Participants::create($validated);
 
-        // Redirect ke halaman soal (misal subtest pertama)
-        return redirect()->route('subtests.questions.show', 1);
+        // Simpan participant_id di session
+        Session::put('participant_id', $participant->id);
+
+        // Ambil subtest pertama berdasarkan urutan
+        $firstSubtest = Subtest::orderBy('order')->first();
+
+        // Jika subtest tidak ada
+        if (!$firstSubtest) {
+            return redirect()->back()->with('error', 'Subtest belum tersedia.');
+        }
+
+        // Redirect ke halaman instruksi subtest pertama
+        return redirect()->route('subtests.show', $firstSubtest->id);
     }
 }

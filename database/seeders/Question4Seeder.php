@@ -6,6 +6,7 @@ use App\Models\Question;
 use App\Models\Subtest;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class Question4Seeder extends Seeder
 {
@@ -13,8 +14,7 @@ class Question4Seeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    {
-        // Ambil Subtest 04
+    {        
         $subtest = Subtest::where('order', 4)->first();
 
         $questions = [

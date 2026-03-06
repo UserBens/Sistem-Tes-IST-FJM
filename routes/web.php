@@ -1,13 +1,18 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubtestController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [LoginController::class, 'indexLogin'])->name('index.login');
+Route::post('/login', [LoginController::class, 'loginProcess'])->name('login.process');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/testapi', [LoginController::class, 'testApi']);
 
 Route::get('/participant/form', [ParticipantController::class, 'create'])->name('participant.create');
 Route::post('/participant/form', [ParticipantController::class, 'store'])->name('participant.store');
