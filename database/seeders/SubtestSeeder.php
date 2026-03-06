@@ -287,41 +287,6 @@ class SubtestSeeder extends Seeder
         ]);
 
         Subtest::create([
-            'subtest_name' => 'Subtest 07',
-            'duration' => 20,
-            'order' => 7,
-            'instruction' => "
-                PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 07
-                (Soal-soal No. 117 – 136)
-
-                Pada persoalan berikutnya, setiap soal memperlihatkan suatu bentuk tertentu
-                yang terpotong menjadi beberapa bagian.
-
-                Carilah di antara bentuk-bentuk yang ditentukan (a, b, c, d, e) bentuk yang
-                dibangun dengan cara menyusun potongan-potongan itu sedemikian rupa,
-                sehingga tidak ada kelebihan sudut atau ruang di antaranya.
-
-                Carilah bentuk-bentuk itu dan coretlah huruf yang menunjukkan bentuk tadi
-                pada lembar jawaban di belakang nomor soal yang sesuai.
-
-                Contoh 07
-
-                Jika potongan-potongan pada contoh 07 di atas disusun (digabungkan),
-                maka akan menghasilkan bentuk a.
-
-                Oleh karena itu, pada lembar jawaban di belakang contoh 07,
-                huruf a harus dicoret.
-
-                Contoh berikutnya:
-                Potongan-potongan contoh kedua setelah disusun menghasilkan bentuk e.
-                Contoh ketiga menjadi bentuk b.
-                Contoh keempat ialah bentuk d.
-                ",
-
-            'instruction_image' => 'gambar-subtest7.png'
-        ]);
-
-        Subtest::create([
             'subtest_name' => 'Subtest 08',
             'duration' => 20,
             'order' => 8,

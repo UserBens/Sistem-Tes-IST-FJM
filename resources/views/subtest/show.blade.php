@@ -1,4 +1,4 @@
-{{-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -91,85 +91,6 @@
         </div>
 
     </div>
-
-</body>
-
-</html> --}}
-
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>{{ $subtest->subtest_name }}</title>
-
-    <style>
-        body {
-            font-family: Arial;
-            margin: 40px;
-        }
-
-        .instruction {
-            background: #f4f4f4;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-
-        .question {
-            margin-bottom: 25px;
-        }
-
-        .option {
-            margin-left: 20px;
-        }
-    </style>
-
-</head>
-
-<body>
-
-    {{-- <h2>{{ $subtest->subtest_name }}</h2>
-
-    <div class="instruction">
-
-        {!! nl2br($subtest->instruction) !!}
-
-        @if ($subtest->instruction_image)
-            <br><br>
-            <img src="{{ asset($subtest->instruction_image) }}" width="400">
-        @endif
-
-    </div> --}}
-    <div class="container">
-
-        <div class="card">
-
-            @foreach ($subtest->questions as $index => $question)
-                <div class="question">
-
-                    <strong>
-                        {{ $index + 1 }}. {{ $question->question }}
-                    </strong>
-
-                    @foreach ($question->options as $option)
-                        <div class="option">
-                            <label>
-                                <input type="radio" name="question_{{ $question->id }}">
-                                {{ $option->option_text }}
-                            </label>
-                        </div>
-                    @endforeach
-
-                </div>
-            @endforeach
-
-        </div>
-
-    </div>
-
-
-
 
 </body>
 

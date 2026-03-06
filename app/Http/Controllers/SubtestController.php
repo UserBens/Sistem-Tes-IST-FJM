@@ -7,18 +7,9 @@ use Illuminate\Http\Request;
 
 class SubtestController extends Controller
 {
-    // public function show($id)
-    // {
-    //     $subtest = Subtest::findOrFail($id);
-
-    //     return view('subtest.show', compact('subtest'));
-    // }
-
-    public function subtest($order)
+    public function show($id)
     {
-        $subtest = Subtest::with('questions.options')
-            ->where('order', $order)
-            ->firstOrFail();
+        $subtest = Subtest::findOrFail($id);
 
         return view('subtest.show', compact('subtest'));
     }

@@ -20,7 +20,7 @@ class Question3Seeder extends Seeder
 
         $questions = [
             [
-                'question' => 'Menemukan : menghilangkan = Mengingat : ?',
+                'question' => '41. Menemukan : menghilangkan = Mengingat : ?',
                 'options' => [
                     ['text' => 'menghapal', 'is_correct' => true],
                     ['text' => 'mengenai', 'is_correct' => false],
@@ -30,7 +30,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Bunga : jambangan = Burung : ?',
+                'question' => '42. Bunga : jambangan = Burung : ?',
                 'options' => [
                     ['text' => 'sarang', 'is_correct' => true],
                     ['text' => 'langit', 'is_correct' => false],
@@ -40,7 +40,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Kereta api : rel = Otobis : ?',
+                'question' => '43. Kereta api : rel = Otobis : ?',
                 'options' => [
                     ['text' => 'roda', 'is_correct' => true],
                     ['text' => 'poros', 'is_correct' => false],
@@ -50,7 +50,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Perak : emas = Cincin : ?',
+                'question' => '44. Perak : emas = Cincin : ?',
                 'options' => [
                     ['text' => 'arloji', 'is_correct' => true],
                     ['text' => 'berlian', 'is_correct' => false],
@@ -60,7 +60,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Lingkaran : bola = Bujur sangkar : ?',
+                'question' => '45. Lingkaran : bola = Bujur sangkar : ?',
                 'options' => [
                     ['text' => 'bentuk', 'is_correct' => true],
                     ['text' => 'gambar', 'is_correct' => false],
@@ -70,7 +70,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Saran : kepustakaan = Merundingkan : ?',
+                'question' => '46. Saran : kepustakaan = Merundingkan : ?',
                 'options' => [
                     ['text' => 'menawarkan', 'is_correct' => true],
                     ['text' => 'menentukan', 'is_correct' => false],
@@ -80,7 +80,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Lidah : asam = Hidung : ?',
+                'question' => '47. Lidah : asam = Hidung : ?',
                 'options' => [
                     ['text' => 'mencium', 'is_correct' => true],
                     ['text' => 'bernapas', 'is_correct' => false],
@@ -90,7 +90,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Darah : pembuluh = Air : ?',
+                'question' => '48. Darah : pembuluh = Air : ?',
                 'options' => [
                     ['text' => 'pintu air', 'is_correct' => true],
                     ['text' => 'sungai', 'is_correct' => false],
@@ -100,7 +100,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Saraf : penyalur = Pupil : ?',
+                'question' => '49. Saraf : penyalur = Pupil : ?',
                 'options' => [
                     ['text' => 'penyinaran', 'is_correct' => true],
                     ['text' => 'mata', 'is_correct' => false],
@@ -110,7 +110,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Pengantar surat : pengantar telegram = Pandai besi : ?',
+                'question' => '50. Pengantar surat : pengantar telegram = Pandai besi : ?',
                 'options' => [
                     ['text' => 'palu godam', 'is_correct' => true],
                     ['text' => 'pedagang besi', 'is_correct' => false],
@@ -120,7 +120,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Buta : warna = Tuli : ?',
+                'question' => '51. Buta : warna = Tuli : ?',
                 'options' => [
                     ['text' => 'pendengaran', 'is_correct' => true],
                     ['text' => 'mendengar', 'is_correct' => false],
@@ -130,7 +130,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Makanan : bumbu = Ceramah : ?',
+                'question' => '52. Makanan : bumbu = Ceramah : ?',
                 'options' => [
                     ['text' => 'penghinaan', 'is_correct' => true],
                     ['text' => 'pidato', 'is_correct' => false],
@@ -140,7 +140,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Marah : emosi = Duka cita : ?',
+                'question' => '53. Marah : emosi = Duka cita : ?',
                 'options' => [
                     ['text' => 'suka cita', 'is_correct' => true],
                     ['text' => 'sakit hati', 'is_correct' => false],
@@ -150,7 +150,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Mantel : jubah = wool : ?',
+                'question' => '54. Mantel : jubah = wool : ?',
                 'options' => [
                     ['text' => 'bahan sandang', 'is_correct' => true],
                     ['text' => 'domba', 'is_correct' => false],
@@ -160,7 +160,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Ketinggian puncak : tekanan udara = ketinggian nada : ?',
+                'question' => '55. Ketinggian puncak : tekanan udara = ketinggian nada : ?',
                 'options' => [
                     ['text' => 'garpu tala', 'is_correct' => true],
                     ['text' => 'sopran', 'is_correct' => false],
@@ -170,7 +170,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Negara : revolusi = Hidup : ?',
+                'question' => '56. Negara : revolusi = Hidup : ?',
                 'options' => [
                     ['text' => 'biologi', 'is_correct' => true],
                     ['text' => 'keturunan', 'is_correct' => false],
@@ -180,7 +180,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Kekurangan : penemuan = Panas : ?',
+                'question' => '57. Kekurangan : penemuan = Panas : ?',
                 'options' => [
                     ['text' => 'haus', 'is_correct' => true],
                     ['text' => 'khatulistiwa', 'is_correct' => false],
@@ -190,7 +190,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Kayu : diketam = Besi : ?',
+                'question' => '58. Kayu : diketam = Besi : ?',
                 'options' => [
                     ['text' => 'dipalu', 'is_correct' => true],
                     ['text' => 'digergaji', 'is_correct' => false],
@@ -200,7 +200,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Olahragawan : lembing = Cendekiawan : ?',
+                'question' => '59. Olahragawan : lembing = Cendekiawan : ?',
                 'options' => [
                     ['text' => 'perpustakaan', 'is_correct' => true],
                     ['text' => 'penelitian', 'is_correct' => false],
@@ -210,7 +210,7 @@ class Question3Seeder extends Seeder
                 ]
             ],
             [
-                'question' => 'Keledai : kuda pacuan = Pembakaran : ?',
+                'question' => '60. Keledai : kuda pacuan = Pembakaran : ?',
                 'options' => [
                     ['text' => 'pemadam api', 'is_correct' => true],
                     ['text' => 'obor', 'is_correct' => false],

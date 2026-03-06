@@ -18,22 +18,22 @@ class Question4Seeder extends Seeder
         $subtest = Subtest::where('order', 4)->first();
 
         $questions = [
-            '1. mawar – melati',
-            '2. mata – telinga',
-            '3. gula – intan',
-            '4. hujan – salju',
-            '5. pengantar surat – telepon',
-            '6. kamera – kacamata',
-            '7. lambung – usus',
-            '8. banyak – sedikit',
-            '9. telur – benih',
-            '10. bendera – lencana',
-            '11. rumput – gajah',
-            '12. ember – kantong',
-            '13. awal – akhir',
-            '14. kikir – boros',
-            '15. penawaran – permintaan',
-            '16. atas – bawah'
+            '61. mawar – melati',
+            '62. mata – telinga',
+            '63. gula – intan',
+            '64. hujan – salju',
+            '65. pengantar surat – telepon',
+            '66. kamera – kacamata',
+            '67. lambung – usus',
+            '68. banyak – sedikit',
+            '69. telur – benih',
+            '70. bendera – lencana',
+            '71. rumput – gajah',
+            '72. ember – kantong',
+            '73. awal – akhir',
+            '74. kikir – boros',
+            '75. penawaran – permintaan',
+            '76. atas – bawah'
         ];
 
         foreach ($questions as $q) {
