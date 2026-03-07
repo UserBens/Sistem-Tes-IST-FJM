@@ -23,7 +23,7 @@
                 </div>
 
                 <h1 class="text-2xl font-bold text-gray-800">
-                    {{ $subtest->subtest_name }}
+                    Instruksi {{ $subtest->subtest_name }}
                 </h1>
 
                 <p class="text-gray-600 mt-2">
@@ -52,11 +52,12 @@
                     </svg>
                     <span class="text-sm font-medium">Tes dimulai otomatis dalam:</span>
                 </div>
-                <span id="timer" class="text-2xl font-bold text-red-600 tabular-nums">0:10</span>
+                <span id="timer" class="text-2xl font-bold text-red-600 tabular-nums">-- : --</span>
             </div>
 
             <!-- Duration Badge -->
-            <div class="mb-4 inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 border border-indigo-200 rounded-full text-indigo-700 text-sm font-medium">
+            <div
+                class="mb-4 inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 border border-indigo-200 rounded-full text-indigo-700 text-sm font-medium">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -67,7 +68,8 @@
             <hr class="mb-5 border-gray-200">
 
             <!-- Instruction Content -->
-            <div class="mb-5 p-4 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 text-sm leading-relaxed whitespace-pre-line">
+            <div
+                class="mb-5 p-4 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 text-sm leading-relaxed whitespace-pre-line">
                 {{ $subtest->instruction }}
             </div>
 
@@ -90,24 +92,82 @@
         </div>
     </div>
 
-    <script>
-        let timeLeft = 10;
+    {{-- <script>
+        // =======================================
+        // TIMER UNTUK TESTING
+        // =======================================
+        let timeLeft = 5; // 10 detik untuk testing
+
+        // =======================================
+        // TIMER PRODUCTION (gunakan ini nanti)
+        // =======================================
+        // let timeLeft = {{ $subtest->duration * 60 }};
+
         const timerElement = document.getElementById("timer");
 
-        const countdown = setInterval(function () {
+        const countdown = setInterval(function() {
+
             let minutes = Math.floor(timeLeft / 60);
             let seconds = timeLeft % 60;
+
             seconds = seconds < 10 ? "0" + seconds : seconds;
+
             timerElement.textContent = minutes + ":" + seconds;
+
             timeLeft--;
 
             if (timeLeft < 0) {
+
                 clearInterval(countdown);
-                window.location.href = "{{ route('questions.show', $subtest->id) }}";
+
+                window.location.href = "/subtests/{{ $subtest->order }}/questions";
+
             }
+
+        }, 1000);
+    </script> --}}
+
+    <script>
+        // =======================================
+        // TIMER UNTUK TESTING
+        // =======================================
+        // let timeLeft = 10; // 10 detik untuk testing
+
+        // =======================================
+        // TIMER PRODUCTION (gunakan ini nanti)
+        // =======================================
+        // let timeLeft = {{ $subtest->duration * 60 }};
+
+        const timerElement = document.getElementById("timer");
+
+        const countdown = setInterval(function() {
+
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            timerElement.textContent = minutes + ":" + seconds;
+
+            timeLeft--;
+
+            if (timeLeft < 0) {
+
+                clearInterval(countdown);
+
+                let currentOrder = {{ $subtest->order }};
+                let totalSubtest = {{ \App\Models\Subtest::count() }};
+
+                if (currentOrder >= totalSubtest) {
+                    window.location.href = "{{ route('test.finish') }}";
+                } else {
+                    window.location.href = "/subtests/" + currentOrder + "/questions";
+                }
+
+            }
+
         }, 1000);
     </script>
-
 </body>
 
 </html>

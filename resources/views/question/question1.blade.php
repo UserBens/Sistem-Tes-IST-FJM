@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $subtest->subtest_name }}</title>
+    <title>Kelompok Soal {{ $subtest->subtest_name }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -23,7 +23,7 @@
                 </div>
 
                 <h1 class="text-2xl font-bold text-gray-800">
-                    {{ $subtest->subtest_name }}
+                    Kelompok Soal {{ $subtest->subtest_name }}
                 </h1>
 
                 <p class="text-gray-600 mt-2">
@@ -60,73 +60,151 @@
                 Jawab semua soal dengan teliti. Tes akan otomatis dikumpulkan saat waktu habis.
             </div>
 
-            {{-- <form action="{{ route('subtest.submit', $subtest->id) }}" method="POST"> --}}
-            @csrf
+            <form id="examForm" action="{{ route('subtest.submit', $subtest->id) }}" method="POST">
+                @csrf
 
-            <!-- Questions -->
-            <div class="space-y-6 mb-8">
-                @foreach ($subtest->questions as $index => $question)
-                    <div class="p-5 border border-gray-200 rounded-xl bg-gray-50">
+                <!-- Questions -->
+                <div class="space-y-6 mb-8">
+                    @foreach ($subtest->questions as $index => $question)
+                        <div class="p-5 border border-gray-200 rounded-xl bg-gray-50">
 
-                        <!-- Question Number + Text -->
-                        <div class="mb-4">
-                            <span
-                                class="inline-flex items-center justify-center w-7 h-7 bg-indigo-600 text-white text-xs font-bold rounded-full mr-2">
-                                {{ $index + 1 }}
-                            </span>
-
-                            @if (Str::endsWith($question->question, ['.png', '.jpg', '.jpeg', '.webp']))
-                                <img src="{{ asset('storage/' . $question->question) }}" alt="Soal {{ $index + 1 }}"
-                                    class="mt-3 rounded-lg border border-gray-200 max-w-full">
-                            @else
-                                <span class="text-gray-800 font-medium text-sm leading-relaxed">
-                                    {{ $question->question }}
+                            <!-- Question Number + Text -->
+                            <div class="mb-4">
+                                <span
+                                    class="inline-flex items-center justify-center w-7 h-7 bg-indigo-600 text-white text-xs font-bold rounded-full mr-2">
+                                    {{ $index + 1 }}
                                 </span>
-                            @endif
-                        </div>
 
-                        <!-- Options -->
-                        <div class="space-y-2 mt-3">
-                            @foreach ($question->options as $option)
-                                <label
-                                    class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 bg-white
-                                              hover:border-indigo-400 hover:bg-indigo-50 cursor-pointer transition duration-150
-                                              has-[:checked]:border-indigo-500 has-[:checked]:bg-indigo-50">
+                                @if (Str::endsWith($question->question, ['.png', '.jpg', '.jpeg', '.webp']))
+                                    <img src="{{ asset('storage/' . $question->question) }}"
+                                        alt="Soal {{ $index + 1 }}"
+                                        class="mt-3 rounded-lg border border-gray-200 max-w-full">
+                                @else
+                                    <span class="text-gray-800 font-medium text-sm leading-relaxed">
+                                        {{ $question->question }}
+                                    </span>
+                                @endif
+                            </div>
 
-                                    <input
-                                        type="{{ $question->question_type == 'multiple_choice' ? 'checkbox' : 'radio' }}"
-                                        name="question_{{ $question->id }}{{ $question->question_type == 'multiple_choice' ? '[]' : '' }}"
-                                        value="{{ $option->id }}" class="accent-indigo-600 w-4 h-4 shrink-0">
+                            <!-- Options -->
+                            <div class="space-y-2 mt-3">
+                                <div class="space-y-2 mt-3">
 
-                                    @if ($option->option_image)
-                                        <img src="{{ asset('storage/' . $option->option_image) }}" alt="Pilihan"
-                                            class="max-h-16 object-contain rounded">
-                                    @else
-                                        <span class="text-sm text-gray-700">{{ $option->option_text }}</span>
+                                    {{-- SINGLE CHOICE --}}
+                                    @if ($question->question_type == 'single_choice')
+                                        @foreach ($question->options as $option)
+                                            <label
+                                                class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 bg-white">
+
+                                                <input type="radio" name="question_{{ $question->id }}"
+                                                    value="{{ $option->id }}" class="accent-indigo-600 w-4 h-4">
+
+                                                <span class="text-sm text-gray-700">
+                                                    {{ $option->option_text }}
+                                                </span>
+
+                                            </label>
+                                        @endforeach
+
+
+                                        {{-- MULTIPLE CHOICE --}}
+                                    @elseif ($question->question_type == 'multiple_choice')
+                                        @foreach ($question->options as $option)
+                                            <label
+                                                class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 bg-white">
+
+                                                <input type="checkbox" name="question_{{ $question->id }}[]"
+                                                    value="{{ $option->id }}" class="accent-indigo-600 w-4 h-4">
+
+                                                <span class="text-sm text-gray-700">
+                                                    {{ $option->option_text }}
+                                                </span>
+
+                                            </label>
+                                        @endforeach
+
+
+                                        {{-- ESSAY --}}
+                                    @elseif ($question->question_type == 'essay')
+                                        <textarea name="question_{{ $question->id }}" rows="4"
+                                            class="w-full border border-gray-300 rounded-lg p-3 text-sm" placeholder="Tulis jawaban Anda..."></textarea>
+
+
+                                        {{-- NUMBER CHOICE --}}
+                                    @elseif ($question->question_type == 'number_choice')
+                                        <div class="flex flex-wrap gap-3 mt-3">
+
+                                            @for ($i = 1; $i <= 9; $i++)
+                                                <label class="cursor-pointer">
+
+                                                    <input type="checkbox" name="question_{{ $question->id }}[]"
+                                                        value="{{ $i }}" class="hidden peer">
+
+                                                    <div
+                                                        class="w-10 h-10 flex items-center justify-center border rounded-lg
+                            peer-checked:bg-indigo-600
+                            peer-checked:text-white
+                            border-gray-300">
+
+                                                        {{ $i }}
+
+                                                    </div>
+
+                                                </label>
+                                            @endfor
+
+                                            {{-- angka 0 --}}
+                                            <label class="cursor-pointer">
+
+                                                <input type="checkbox" name="question_{{ $question->id }}[]"
+                                                    value="0" class="hidden peer">
+
+                                                <div
+                                                    class="w-10 h-10 flex items-center justify-center border rounded-lg
+                        peer-checked:bg-indigo-600
+                        peer-checked:text-white
+                        border-gray-300">
+
+                                                    0
+
+                                                </div>
+
+                                            </label>
+
+                                        </div>
                                     @endif
-                                </label>
-                            @endforeach
+
+                                </div>
+                            </div>
+
                         </div>
+                    @endforeach
+                </div>
 
-                    </div>
-                @endforeach
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit"
-                class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold
+                <!-- Submit Button -->
+                <button type="submit"
+                    class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold
                        hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300
                        transition duration-200">
-                Kirim Jawaban
-            </button>
+                    Kirim Jawaban
+                </button>
 
-            {{-- </form> --}}
+            </form>
 
         </div>
     </div>
 
-    <script>
-        let timeLeft = 10;
+    {{-- <script>
+        // =======================================
+        // TIMER UNTUK TESTING
+        // =======================================
+        let timeLeft = 5; // 10 detik untuk testing
+
+        // =======================================
+        // TIMER PRODUCTION (gunakan ini nanti)
+        // =======================================
+        // let timeLeft = {{ $subtest->duration * 60 }};
+
         const timerElement = document.getElementById("timer");
 
         const countdown = setInterval(function() {
@@ -146,13 +224,78 @@
 
                 let nextSubtest = {{ $subtest->order + 1 }};
 
-                window.location.href = "/subtests/" + nextSubtest + "/questions";
+                window.location.href = "/subtests/" + nextSubtest;
+
+            }
+
+        }, 1000);
+    </script> --}}
+
+    {{-- <script>
+        // =======================================
+        // TIMER UNTUK TESTING
+        // =======================================
+        // let timeLeft = 5; // 10 detik untuk testing
+
+        // =======================================
+        // TIMER PRODUCTION (gunakan ini nanti)
+        // =======================================
+        let timeLeft = {{ $subtest->duration * 60 }};
+
+        const timerElement = document.getElementById("timer");
+
+        const countdown = setInterval(function() {
+
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            timerElement.textContent = minutes + ":" + seconds;
+
+            timeLeft--;
+
+            if (timeLeft < 0) {
+
+                clearInterval(countdown);
+
+                let nextSubtest = {{ $subtest->order + 1 }};
+
+                window.location.href = "/subtests/" + nextSubtest;
+
+            }
+
+        }, 1000);
+    </script> --}}
+
+    <script>
+        // let timeLeft = 10; // 10 detik untuk testing
+
+        // let timeLeft = {{ $subtest->duration * 60 }};
+
+        const timerElement = document.getElementById("timer");
+
+        const countdown = setInterval(function() {
+
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            timerElement.textContent = minutes + ":" + seconds;
+
+            timeLeft--;
+
+            if (timeLeft < 0) {
+
+                clearInterval(countdown);
+
+                document.getElementById("examForm").submit();
 
             }
 
         }, 1000);
     </script>
-
 </body>
 
 </html>

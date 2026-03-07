@@ -385,5 +385,57 @@ class SubtestSeeder extends Seeder
                 ",
             'instruction_image' => null
         ]);
+
+        Subtest::create([
+            'subtest_name' => 'Subtest Hafalan',
+            'duration' => 3,
+            'order' => 10,
+            'instruction' => "
+                Hafalkan kata-kata di bawah ini selama 3 menit.
+
+                BUNGA : SOKA, LARAT, FLAMBOYAN, YASMIN, DAHLIA
+                PERKAKAS : WAJAN, JARUM, KIKIR, CANGKUL, PALU
+                BURUNG : ITIK, ELANG, WALET, TEKUKUR, NURI
+                KESENIAN : QUINTET, ARCA, OPERA, UKIRAN, GAMELAN
+                BINATANG : RUSA, MUSANG, BERUANG, HARIMAU, ZEBRA
+
+
+                ME
+
+
+                Hafalkan kata-kata di bawah ini selama 3 menit.
+
+                BUNGA : SOKA, LARAT, FLAMBOYAN, YASMIN, DAHLIA
+                PERKAKAS : WAJAN, JARUM, KIKIR, CANGKUL, PALU
+                BURUNG : ITIK, ELANG, WALET, TERUKUR, NURI
+                KESENIAN : QUATET, ARCA, OPERA, UKIRAN, GAMELAN
+                BINATANG : RUSA, MUSANG, BERUANG, HARIMAU, ZEBRA
+
+
+                ME
+
+
+                Hafalkan kata-kata di bawah ini selama 3 menit.
+
+                BUNGA : SOKA, LARAT, FLAMBOYAN, YASMIN, DAHLIA
+                PERKAKAS : WAJAN, JARUM, KIKIR, CANGKUL, PALU
+                BURUNG : ITIK, ELANG, WALET, TERUKUR, NURI
+                KESENIAN : QUATET, ARCA, OPERA, UKIRAN, GAMELAN
+                BINATANG : RUSA, MUSANG, BERUANG, HARIMAU, ZEBRA
+
+
+                ME
+
+
+                Hafalkan kata-kata di bawah ini selama 3 menit.
+
+                BUNGA : SOKA, LARAT, FLAMBOYAN, YASMIN, DAHLIA
+                PERKAKAS : WAJAN, JARUM, KIKIR, CANGKUL, PALU
+                BURUNG : ITIK, ELANG, WALET, TERUKUR, NURI
+                KESENIAN : QUATET, ARCA, OPERA, UKIRAN, GAMELAN
+                BINATANG : RUSA, MUSANG, BERUANG, HARIMAU, ZEBRA
+                ",
+            'instruction_image' => null
+        ]);
     }
 }

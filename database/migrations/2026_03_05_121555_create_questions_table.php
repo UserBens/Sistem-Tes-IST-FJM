@@ -22,7 +22,8 @@ return new class extends Migration
             $table->enum('question_type', [
                 'single_choice',
                 'multiple_choice',
-                'essay'
+                'essay',
+                'number_choice' // TAMBAHAN
             ]);
 
             $table->integer('weight')->default(1);

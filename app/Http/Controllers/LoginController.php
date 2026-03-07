@@ -52,6 +52,9 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
+
+        $request->session()->forget('participant_id');
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 

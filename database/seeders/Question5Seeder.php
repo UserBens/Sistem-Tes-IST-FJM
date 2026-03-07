@@ -44,8 +44,7 @@ class Question5Seeder extends Seeder
             Question::create([
                 'subtest_id' => $subtest->id,
                 'question' => $q,
-                'question_type' => 'multiple_choice', // pakai multiple_choice untuk jawaban angka dicoret
-                'weight' => 1,
+                'question_type' => 'number_choice', // pakai multiple_choice untuk jawaban angka dicoret
             ]);
         }
     }
