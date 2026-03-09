@@ -6,6 +6,9 @@ use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubtestController;
 use App\Models\Participants;
+use App\Models\Question;
+use App\Models\Subtest;
+use App\Models\TestAttempts;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -38,7 +41,15 @@ Route::middleware('check.login')->group(function () {
 
             $participant = Participants::find(session('participant_id'));
 
-            return view('finish', compact('participant'));
+            $attempts = TestAttempts::with('subtest')
+                ->where('participant_id', $participant->id)
+                ->orderBy('subtest_id')
+                ->get();
+
+            return view('finish', compact(
+                'participant',
+                'attempts'
+            ));
         })->name('test.finish');
     });
 });

@@ -22,83 +22,103 @@ class Question2Seeder extends Seeder
 
             [
                 'question' => '21. Manakah yang berbeda?',
-                'options' => ['lingkungan', 'panah', 'elips', 'busur', 'lengkungan']
+                'options' => ['lingkungan', 'panah', 'elips', 'busur', 'lengkungan'],
+                'correct' => 0
             ],
             [
                 'question' => '22. Manakah yang berbeda?',
-                'options' => ['mengetuk', 'memaki', 'menjahit', 'menggergaji', 'memukul']
+                'options' => ['mengetuk', 'memaki', 'menjahit', 'menggergaji', 'memukul'],
+                'correct' => 1
             ],
             [
                 'question' => '23. Manakah yang berbeda?',
-                'options' => ['lebar', 'keliling', 'luas', 'isi', 'panjang']
+                'options' => ['lebar', 'keliling', 'luas', 'isi', 'panjang'],
+                'correct' => 3
             ],
             [
                 'question' => '24. Manakah yang berbeda?',
-                'options' => ['mengikat', 'menyatukan', 'melepaskan', 'mengaitkan', 'melekatkan']
+                'options' => ['mengikat', 'menyatukan', 'melepaskan', 'mengaitkan', 'melekatkan'],
+                'correct' => 2
             ],
             [
                 'question' => '25. Manakah yang berbeda?',
-                'options' => ['arah', 'timur', 'perjalanan', 'tujuan', 'selatan']
+                'options' => ['arah', 'timur', 'perjalanan', 'tujuan', 'selatan'],
+                'correct' => 2
             ],
             [
                 'question' => '26. Manakah yang berbeda?',
-                'options' => ['jarak', 'perpisahan', 'tugas', 'batas', 'perceraian']
+                'options' => ['jarak', 'perpisahan', 'tugas', 'batas', 'perceraian'],
+                'correct' => 2
             ],
             [
                 'question' => '27. Manakah yang berbeda?',
-                'options' => ['saringan', 'kelambu', 'payung', 'tapisan', 'jala']
+                'options' => ['saringan', 'kelambu', 'payung', 'tapisan', 'jala'],
+                'correct' => 2
             ],
             [
                 'question' => '28. Manakah yang berbeda?',
-                'options' => ['putih', 'pucat', 'buram', 'kasar', 'berkilauan']
+                'options' => ['putih', 'pucat', 'buram', 'kasar', 'berkilauan'],
+                'correct' => 3
             ],
             [
                 'question' => '29. Manakah yang berbeda?',
-                'options' => ['otobis', 'pesawat terbang', 'sepeda motor', 'sepeda', 'kapal api']
+                'options' => ['otobis', 'pesawat terbang', 'sepeda motor', 'sepeda', 'kapal api'],
+                'correct' => 3
             ],
             [
                 'question' => '30. Manakah yang berbeda?',
-                'options' => ['biola', 'seruling', 'klarinet', 'terompet', 'saxophon']
+                'options' => ['biola', 'seruling', 'klarinet', 'terompet', 'saxophon'],
+                'correct' => 3
             ],
             [
                 'question' => '31. Manakah yang berbeda?',
-                'options' => ['bergelombang', 'kasar', 'berduri', 'licin', 'lurus']
+                'options' => ['bergelombang', 'kasar', 'berduri', 'licin', 'lurus'],
+                'correct' => 4
             ],
             [
                 'question' => '32. Manakah yang berbeda?',
-                'options' => ['jam', 'kompas', 'penunjuk jalan', 'bintang pari', 'arah']
+                'options' => ['jam', 'kompas', 'penunjuk jalan', 'bintang pari', 'arah'],
+                'correct' => 0
             ],
             [
                 'question' => '33. Manakah yang berbeda?',
-                'options' => ['kebijaksanaan', 'pendidikan', 'perencanaan', 'penempatan', 'pengerahan']
+                'options' => ['kebijaksanaan', 'pendidikan', 'perencanaan', 'penempatan', 'pengerahan'],
+                'correct' => 0
             ],
             [
                 'question' => '34. Manakah yang berbeda?',
-                'options' => ['bermotor', 'berjalan', 'berlayar', 'bersepeda', 'berkuda']
+                'options' => ['bermotor', 'berjalan', 'berlayar', 'bersepeda', 'berkuda'],
+                'correct' => 1
             ],
             [
                 'question' => '35. Manakah yang berbeda?',
-                'options' => ['gambar', 'lukisan', 'potret', 'patung', 'ukiran']
+                'options' => ['gambar', 'lukisan', 'potret', 'patung', 'ukiran'],
+                'correct' => 1
             ],
             [
                 'question' => '36. Manakah yang berbeda?',
-                'options' => ['panjang', 'lonjong', 'runcing', 'bulat', 'bersudut']
+                'options' => ['panjang', 'lonjong', 'runcing', 'bulat', 'bersudut'],
+                'correct' => 4
             ],
             [
                 'question' => '37. Manakah yang berbeda?',
-                'options' => ['kunci', 'palang pintu', 'gerendel', 'gunting', 'obeng']
+                'options' => ['kunci', 'palang pintu', 'gerendel', 'gunting', 'obeng'],
+                'correct' => 1
             ],
             [
                 'question' => '38. Manakah yang berbeda?',
-                'options' => ['jembatan', 'batas', 'perkawinan', 'pagar', 'masyarakat']
+                'options' => ['jembatan', 'batas', 'perkawinan', 'pagar', 'masyarakat'],
+                'correct' => 1
             ],
             [
                 'question' => '39. Manakah yang berbeda?',
-                'options' => ['mengetam', 'menasehati', 'mengasah', 'melicinkan', 'menggosok']
+                'options' => ['mengetam', 'menasehati', 'mengasah', 'melicinkan', 'menggosok'],
+                'correct' => 1
             ],
             [
                 'question' => '40. Manakah yang berbeda?',
-                'options' => ['batu', 'baja', 'bulu', 'karet', 'kayu']
+                'options' => ['batu', 'baja', 'bulu', 'karet', 'kayu'],
+                'correct' => 2
             ],
 
         ];
@@ -112,12 +132,12 @@ class Question2Seeder extends Seeder
                 'weight' => 1
             ]);
 
-            foreach ($q['options'] as $option) {
+            foreach ($q['options'] as $index => $option) {
 
                 QuestionOption::create([
                     'question_id' => $question->id,
                     'option_text' => $option,
-                    'is_correct' => false
+                    'is_correct' => $index == $q['correct']
                 ]);
             }
         }

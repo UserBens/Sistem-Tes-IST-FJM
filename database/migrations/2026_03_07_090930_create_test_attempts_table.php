@@ -25,6 +25,9 @@ return new class extends Migration
             $table->timestamp('finished_at')->nullable();
             $table->timestamp('instruction_started_at')->nullable();
 
+            $table->integer('score')->default(0);
+            $table->integer('total_questions')->default(0);
+
             $table->timestamps();
         });
     }

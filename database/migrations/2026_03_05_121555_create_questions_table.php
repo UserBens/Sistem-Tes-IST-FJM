@@ -26,6 +26,8 @@ return new class extends Migration
                 'number_choice' // TAMBAHAN
             ]);
 
+            $table->string('correct_answer')->nullable();
+
             $table->integer('weight')->default(1);
             $table->timestamps();
         });

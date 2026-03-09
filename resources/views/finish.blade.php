@@ -34,6 +34,30 @@
             Semoga beruntung!!
         </p>
 
+        <table class="table-auto w-full border border-gray-300">
+            <thead>
+                <tr class="bg-gray-200 text-center">
+                    <th class="border p-2">Subtest</th>
+                    <th class="border p-2">Score</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach ($attempts as $attempt)
+                    <tr class="text-center">
+                        <td class="border p-2">
+                            {{ $attempt->subtest->subtest_name }}
+                        </td>
+
+                        <td class="border p-2 font-semibold text-indigo-600">
+                            {{ $attempt->score }} / {{ $attempt->total_questions }}
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+
         <form action="{{ route('logout') }}" method="POST">
             @csrf
 
