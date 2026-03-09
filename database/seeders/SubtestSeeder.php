@@ -16,7 +16,8 @@ class SubtestSeeder extends Seeder
     {
         Subtest::create([
             'subtest_name' => 'Subtest 01',
-            'duration' => 10,
+            'instruction_duration' => 3,
+            'question_duration' => 10,
             'order' => 1,
             'instruction' => "
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 01
@@ -54,7 +55,8 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 02',
-            'duration' => 10,
+            'instruction_duration' => 3,
+            'question_duration' => 10,
             'order' => 2,
             'instruction' => "
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 02
@@ -95,7 +97,8 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 03',
-            'duration' => 10,
+            'instruction_duration' => 3,
+            'question_duration' => 10,
             'order' => 3,
             'instruction' => "
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 03
@@ -141,7 +144,8 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 04',
-            'duration' => 10,
+            'instruction_duration' => 3,
+            'question_duration' => 10,
             'order' => 4,
             'instruction' => "
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 04
@@ -175,7 +179,8 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 05',
-            'duration' => 10,
+            'instruction_duration' => 3,
+            'question_duration' => 10,
             'order' => 5,
             'instruction' => "
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 05
@@ -216,7 +221,8 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 06',
-            'duration' => 10,
+            'instruction_duration' => 3,
+            'question_duration' => 10,
             'order' => 6,
             'instruction' => "
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 06
@@ -254,7 +260,8 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 07',
-            'duration' => 20,
+            'instruction_duration' => 3,
+            'question_duration' => 10,
             'order' => 7,
             'instruction' => "
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 07
@@ -289,7 +296,8 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 08',
-            'duration' => 20,
+            'instruction_duration' => 3,
+            'question_duration' => 10,
             'order' => 8,
             'instruction' => "
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 08
@@ -343,7 +351,8 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 09',
-            'duration' => 10,
+            'instruction_duration' => 3,
+            'question_duration' => 10,
             'order' => 9,
             'instruction' => "
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 09
@@ -388,7 +397,8 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest Hafalan',
-            'duration' => 3,
+            'instruction_duration' => 3,
+            'question_duration' => 0,
             'order' => 10,
             'instruction' => "
                 Hafalkan kata-kata di bawah ini selama 3 menit.

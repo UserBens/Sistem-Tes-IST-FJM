@@ -99,9 +99,15 @@
                                                 <input type="radio" name="question_{{ $question->id }}"
                                                     value="{{ $option->id }}" class="accent-indigo-600 w-4 h-4">
 
-                                                <span class="text-sm text-gray-700">
-                                                    {{ $option->option_text }}
-                                                </span>
+                                                {{-- jika ada gambar --}}
+                                                @if ($option->option_image)
+                                                    <img src="{{ asset('storage/' . $option->option_image) }}"
+                                                        class="h-16 object-contain">
+                                                @else
+                                                    <span class="text-sm text-gray-700">
+                                                        {{ $option->option_text }}
+                                                    </span>
+                                                @endif
 
                                             </label>
                                         @endforeach
@@ -181,97 +187,13 @@
                     @endforeach
                 </div>
 
-                <!-- Submit Button -->
-                <button type="submit"
-                    class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold
-                       hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300
-                       transition duration-200">
-                    Kirim Jawaban
-                </button>
-
             </form>
 
         </div>
     </div>
 
-    {{-- <script>
-        // =======================================
-        // TIMER UNTUK TESTING
-        // =======================================
-        let timeLeft = 5; // 10 detik untuk testing
-
-        // =======================================
-        // TIMER PRODUCTION (gunakan ini nanti)
-        // =======================================
-        // let timeLeft = {{ $subtest->duration * 60 }};
-
-        const timerElement = document.getElementById("timer");
-
-        const countdown = setInterval(function() {
-
-            let minutes = Math.floor(timeLeft / 60);
-            let seconds = timeLeft % 60;
-
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-
-            timerElement.textContent = minutes + ":" + seconds;
-
-            timeLeft--;
-
-            if (timeLeft < 0) {
-
-                clearInterval(countdown);
-
-                let nextSubtest = {{ $subtest->order + 1 }};
-
-                window.location.href = "/subtests/" + nextSubtest;
-
-            }
-
-        }, 1000);
-    </script> --}}
-
-    {{-- <script>
-        // =======================================
-        // TIMER UNTUK TESTING
-        // =======================================
-        // let timeLeft = 5; // 10 detik untuk testing
-
-        // =======================================
-        // TIMER PRODUCTION (gunakan ini nanti)
-        // =======================================
-        let timeLeft = {{ $subtest->duration * 60 }};
-
-        const timerElement = document.getElementById("timer");
-
-        const countdown = setInterval(function() {
-
-            let minutes = Math.floor(timeLeft / 60);
-            let seconds = timeLeft % 60;
-
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-
-            timerElement.textContent = minutes + ":" + seconds;
-
-            timeLeft--;
-
-            if (timeLeft < 0) {
-
-                clearInterval(countdown);
-
-                let nextSubtest = {{ $subtest->order + 1 }};
-
-                window.location.href = "/subtests/" + nextSubtest;
-
-            }
-
-        }, 1000);
-    </script> --}}
-
     <script>
-        // let timeLeft = 10; // 10 detik untuk testing
-
-        // let timeLeft = {{ $subtest->duration * 60 }};
+        let timeLeft = {{ $timeLeft }};
 
         const timerElement = document.getElementById("timer");
 

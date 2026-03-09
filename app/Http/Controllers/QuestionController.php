@@ -6,30 +6,178 @@ use App\Models\ParticipantAnswer;
 use App\Models\Question;
 use App\Models\Subtest;
 use App\Models\TestAttempts;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
-    public function question1(Request $request, $order)
+    // public function question1(Request $request, $subtestId)
+    // {
+    //     $participantId = session('participant_id');
+
+    //     if (!$participantId) {
+    //         return redirect()->route('participant.create');
+    //     }
+
+    //     $currentSubtest = session('current_subtest');
+
+    //     // CEK SUBTEST AKTIF
+    //     if ($subtestId != $currentSubtest) {
+    //         return redirect()->route('subtests.show', $currentSubtest);
+    //     }
+
+    //     $subtest = Subtest::with('questions.options')
+    //         ->findOrFail($subtestId);
+
+    //     $attempt = TestAttempts::firstOrCreate([
+    //         'participant_id' => $participantId,
+    //         'subtest_id' => $subtest->id
+    //     ]);
+
+    //     if (!$attempt->started_at) {
+    //         $attempt->started_at = now();
+    //         $attempt->save();
+    //     }
+
+    //     $endTime = Carbon::parse($attempt->started_at)
+    //         ->addMinutes($subtest->duration);
+
+    //     $timeLeft = max(0, $endTime->timestamp - now()->timestamp);
+
+    //     $questions = $subtest->questions->values();
+
+    //     $index = $request->get('index', 0);
+
+    //     $currentQuestion = $questions[$index] ?? null;
+
+    //     if (!$currentQuestion) {
+    //         return redirect()->route('subtests.show', $subtest->id);
+    //     }
+
+    //     return view('question.question1', [
+    //         'subtest' => $subtest,
+    //         'question' => $currentQuestion,
+    //         'questions' => $questions,
+    //         'currentIndex' => $index,
+    //         'totalQuestion' => $questions->count(),
+    //         'timeLeft' => $timeLeft
+    //     ]);
+    // }
+
+    // public function question1(Request $request, $subtestId)
+    // {
+    //     $participantId = session('participant_id');
+
+    //     if (!$participantId) {
+    //         return redirect()->route('participant.create');
+    //     }
+
+    //     $currentSubtest = session('current_subtest');
+
+    //     if ($subtestId != $currentSubtest) {
+    //         return redirect()->route('subtests.show', $currentSubtest);
+    //     }
+
+    //     $subtest = Subtest::with('questions.options')
+    //         ->findOrFail($subtestId);
+
+    //     $attempt = TestAttempts::firstOrCreate([
+    //         'participant_id' => $participantId,
+    //         'subtest_id' => $subtest->id
+    //     ]);
+
+    //     if (!$attempt->started_at) {
+
+    //         $attempt->started_at = now();
+    //         $attempt->save();
+    //     }
+
+    //     $endTime = Carbon::parse($attempt->started_at)
+    //         ->addMinutes($subtest->question_duration);
+
+    //     $timeLeft = max(0, $endTime->timestamp - now()->timestamp);
+
+    //     $questions = $subtest->questions->values();
+
+    //     $index = $request->get('index', 0);
+
+    //     $currentQuestion = $questions[$index] ?? null;
+
+    //     if (!$currentQuestion) {
+    //         return redirect()->route('subtests.show', $subtest->id);
+    //     }
+
+    //     return view('question.question1', [
+    //         'subtest' => $subtest,
+    //         'question' => $currentQuestion,
+    //         'questions' => $questions,
+    //         'currentIndex' => $index,
+    //         'totalQuestion' => $questions->count(),
+    //         'timeLeft' => $timeLeft
+    //     ]);
+    // }
+
+    public function question1(Request $request, $subtestId)
     {
-        // Ambil subtest berdasarkan order
+        $participantId = session('participant_id');
+
+        if (!$participantId) {
+            return redirect()->route('participant.create');
+        }
+
+        $currentSubtest = session('current_subtest');
+
+        if ($subtestId != $currentSubtest) {
+            return redirect()->route('subtests.show', $currentSubtest);
+        }
+
         $subtest = Subtest::with('questions.options')
-            ->where('order', $order)
-            ->firstOrFail();
+            ->findOrFail($subtestId);
 
-        // Ambil semua question lalu urutkan
-        $questions = $subtest->questions->sortBy('order')->values();
+        $attempt = TestAttempts::firstOrCreate([
+            'participant_id' => $participantId,
+            'subtest_id' => $subtest->id
+        ]);
 
-        // Ambil index soal dari URL (default = 0)
+        /**
+         * PROTEKSI TIMER INSTRUKSI
+         */
+
+        if (!$attempt->instruction_started_at) {
+            return redirect()->route('subtests.show', $subtest->id);
+        }
+
+        $instructionEnd = Carbon::parse($attempt->instruction_started_at)
+            ->addMinutes($subtest->instruction_duration);
+
+        // Jika waktu instruksi belum habis, kembali ke halaman instruksi
+        if (now()->lt($instructionEnd)) {
+            return redirect()->route('subtests.show', $subtest->id);
+        }
+
+        /**
+         * MULAI TIMER SOAL
+         */
+
+        if (!$attempt->started_at) {
+
+            $attempt->started_at = now();
+            $attempt->save();
+        }
+
+        $endTime = Carbon::parse($attempt->started_at)
+            ->addMinutes($subtest->question_duration);
+
+        $timeLeft = max(0, $endTime->timestamp - now()->timestamp);
+
+        $questions = $subtest->questions->values();
+
         $index = $request->get('index', 0);
 
-        // Ambil soal sesuai index
         $currentQuestion = $questions[$index] ?? null;
 
-        // Jika soal tidak ada
         if (!$currentQuestion) {
-            return redirect()->route('subtests.show', $subtest->id)
-                ->with('error', 'Soal tidak ditemukan');
+            return redirect()->route('subtests.show', $subtest->id);
         }
 
         return view('question.question1', [
@@ -37,7 +185,8 @@ class QuestionController extends Controller
             'question' => $currentQuestion,
             'questions' => $questions,
             'currentIndex' => $index,
-            'totalQuestion' => $questions->count()
+            'totalQuestion' => $questions->count(),
+            'timeLeft' => $timeLeft
         ]);
     }
 
@@ -60,7 +209,6 @@ class QuestionController extends Controller
                 continue;
             }
 
-            // SINGLE CHOICE
             if ($question->question_type == 'single_choice') {
 
                 ParticipantAnswer::create([
@@ -68,10 +216,7 @@ class QuestionController extends Controller
                     'question_id' => $question->id,
                     'option_id' => $answer
                 ]);
-            }
-
-            // MULTIPLE CHOICE
-            elseif ($question->question_type == 'multiple_choice') {
+            } elseif ($question->question_type == 'multiple_choice') {
 
                 foreach ($answer as $optionId) {
 
@@ -81,35 +226,42 @@ class QuestionController extends Controller
                         'option_id' => $optionId
                     ]);
                 }
-            }
-
-            // ESSAY
-            elseif ($question->question_type == 'essay') {
+            } elseif ($question->question_type == 'essay') {
 
                 ParticipantAnswer::create([
                     'attempt_id' => $attempt->id,
                     'question_id' => $question->id,
                     'essay_answer' => $answer
                 ]);
-            }
+            } elseif ($question->question_type == 'number_choice') {
 
-            // NUMBER CHOICE (DIGIT)
-            elseif ($question->question_type == 'number_choice') {
+                $number = implode('', $answer);
 
-                foreach ($answer as $digit) {
-
-                    ParticipantAnswer::create([
-                        'attempt_id' => $attempt->id,
-                        'question_id' => $question->id,
-                        'essay_answer' => $digit
-                    ]);
-                }
+                ParticipantAnswer::create([
+                    'attempt_id' => $attempt->id,
+                    'question_id' => $question->id,
+                    'essay_answer' => $number
+                ]);
             }
         }
 
         TestAttempts::where('id', $attempt->id)
             ->update(['finished_at' => now()]);
 
-        return redirect('/subtests/' . ($subtestId + 1));
+        // AMBIL SUBTEST BERIKUTNYA
+        $currentSubtest = Subtest::findOrFail($subtestId);
+
+        $nextSubtest = Subtest::where('order', '>', $currentSubtest->order)
+            ->orderBy('order')
+            ->first();
+
+        if ($nextSubtest) {
+
+            session(['current_subtest' => $nextSubtest->id]);
+
+            return redirect()->route('subtests.show', $nextSubtest->id);
+        }
+
+        return redirect()->route('test.finish');
     }
 }

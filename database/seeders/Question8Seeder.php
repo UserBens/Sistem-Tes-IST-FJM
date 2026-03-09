@@ -20,10 +20,10 @@ class Question8Seeder extends Seeder
 
         $group_options = [
             'a' => 'group1_08_a.png',
-            'b' => 'group1_08_a.png',
-            'c' => 'group1_08_a.png',
-            'd' => 'group1_08_a.png',
-            'e' => 'group1_08_a.png',
+            'b' => 'group1_08_b.png',
+            'c' => 'group1_08_c.png',
+            'd' => 'group1_08_d.png',
+            'e' => 'group1_08_e.png',
         ];
 
         $questions = [

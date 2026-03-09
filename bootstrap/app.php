@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'check.login' => \App\Http\Middleware\CheckLogin::class,
             'test.flow' => \App\Http\Middleware\TestFlowMiddleware::class,
+            'check.participant' => \App\Http\Middleware\EnsureParticipantFilled::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

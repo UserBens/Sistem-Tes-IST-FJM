@@ -81,62 +81,12 @@
                 </div>
             @endif
 
-            <!-- Button -->
-            {{-- <a href="{{ route('questions.show', $subtest->id) }}" id="btn-start"
-                class="w-full block text-center bg-indigo-600 text-white py-3 rounded-lg font-semibold
-                       hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300
-                       transition duration-200">
-                Mulai Tes Sekarang
-            </a> --}}
-
         </div>
     </div>
 
-    {{-- <script>
-        // =======================================
-        // TIMER UNTUK TESTING
-        // =======================================
-        let timeLeft = 5; // 10 detik untuk testing
-
-        // =======================================
-        // TIMER PRODUCTION (gunakan ini nanti)
-        // =======================================
-        // let timeLeft = {{ $subtest->duration * 60 }};
-
-        const timerElement = document.getElementById("timer");
-
-        const countdown = setInterval(function() {
-
-            let minutes = Math.floor(timeLeft / 60);
-            let seconds = timeLeft % 60;
-
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-
-            timerElement.textContent = minutes + ":" + seconds;
-
-            timeLeft--;
-
-            if (timeLeft < 0) {
-
-                clearInterval(countdown);
-
-                window.location.href = "/subtests/{{ $subtest->order }}/questions";
-
-            }
-
-        }, 1000);
-    </script> --}}
-
     <script>
-        // =======================================
-        // TIMER UNTUK TESTING
-        // =======================================
-        // let timeLeft = 10; // 10 detik untuk testing
-
-        // =======================================
-        // TIMER PRODUCTION (gunakan ini nanti)
-        // =======================================
-        // let timeLeft = {{ $subtest->duration * 60 }};
+        let timeLeft = {{ $timeLeft }};
+        let hasQuestions = {{ $hasQuestions ? 'true' : 'false' }};
 
         const timerElement = document.getElementById("timer");
 
@@ -155,13 +105,14 @@
 
                 clearInterval(countdown);
 
-                let currentOrder = {{ $subtest->order }};
-                let totalSubtest = {{ \App\Models\Subtest::count() }};
+                if (hasQuestions) {
 
-                if (currentOrder >= totalSubtest) {
-                    window.location.href = "{{ route('test.finish') }}";
+                    window.location.href = "{{ route('questions.show', $subtest->id) }}";
+
                 } else {
-                    window.location.href = "/subtests/" + currentOrder + "/questions";
+
+                    window.location.href = "{{ route('test.finish') }}";
+
                 }
 
             }
