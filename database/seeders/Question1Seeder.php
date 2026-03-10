@@ -24,7 +24,7 @@ class Question1Seeder extends Seeder
             [
                 'question' => '1. Pengaruh seseorang terhadap orang lain seharusnya bergantung pada …..',
                 'options' => ['kekuasaan', 'bujukan', 'kekayaan', 'keberanian', 'kewibawaan'],
-                'correct' => 3
+                'correct' => 4
             ],
             [
                 'question' => '2. Lawannya “hemat” ialah ……………',
@@ -49,7 +49,7 @@ class Question1Seeder extends Seeder
             [
                 'question' => '6. Seorang paman lebih tua dari kemenakannya.',
                 'options' => ['jarang', 'biasanya', 'selalu', 'tidak pernah', 'kadang-kadang'],
-                'correct' => 2
+                'correct' => 1
             ],
             [
                 'question' => '7. Pada jumlah yang sama, nilai kalori yang tertinggi terdapat pada ……………',
@@ -74,22 +74,22 @@ class Question1Seeder extends Seeder
             [
                 'question' => '11. Suatu ... tidak menyangkut persoalan pencegahan kecelakaan.',
                 'options' => ['lampu lalu lintas', 'kacamata pelindung', 'kotak PPPK', 'tanda peringatan', 'palang kereta api'],
-                'correct' => 0
+                'correct' => 2
             ],
             [
                 'question' => '12. Mata uang logam Rp 50 tahun 1991, garis tengahnya ialah ... mm.',
                 'options' => ['17', '29', '25', '20', '15'],
-                'correct' => 2
+                'correct' => 3
             ],
             [
                 'question' => '13. Seseorang yang bersikap menyangsikan setiap kemajuan ialah seorang yang …..',
                 'options' => ['demokratis', 'radikal', 'liberal', 'konservatif', 'anarkis'],
-                'correct' => 4
+                'correct' => 3
             ],
             [
                 'question' => '14. Lawannya “tidak pernah” ialah ……………',
                 'options' => ['sering', 'kadang-kadang', 'jarang', 'kerap kali', 'selalu'],
-                'correct' => 2
+                'correct' => 4
             ],
             [
                 'question' => '15. Jarak antara Jakarta – Surabaya kira-kira ... Km',
@@ -119,7 +119,7 @@ class Question1Seeder extends Seeder
             [
                 'question' => '20. Seorang anak yang berumur 10 tahun tingginya rata-rata ... cm',
                 'options' => ['150', '130', '110', '105', '115'],
-                'correct' => 3
+                'correct' => 1
             ],
         ];
 

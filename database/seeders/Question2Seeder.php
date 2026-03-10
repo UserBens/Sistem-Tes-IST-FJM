@@ -23,7 +23,7 @@ class Question2Seeder extends Seeder
             [
                 'question' => '21. Manakah yang berbeda?',
                 'options' => ['lingkungan', 'panah', 'elips', 'busur', 'lengkungan'],
-                'correct' => 0
+                'correct' => 1
             ],
             [
                 'question' => '22. Manakah yang berbeda?',
@@ -68,7 +68,7 @@ class Question2Seeder extends Seeder
             [
                 'question' => '30. Manakah yang berbeda?',
                 'options' => ['biola', 'seruling', 'klarinet', 'terompet', 'saxophon'],
-                'correct' => 3
+                'correct' => 0
             ],
             [
                 'question' => '31. Manakah yang berbeda?',
@@ -93,22 +93,22 @@ class Question2Seeder extends Seeder
             [
                 'question' => '35. Manakah yang berbeda?',
                 'options' => ['gambar', 'lukisan', 'potret', 'patung', 'ukiran'],
-                'correct' => 1
+                'correct' => 2
             ],
             [
                 'question' => '36. Manakah yang berbeda?',
                 'options' => ['panjang', 'lonjong', 'runcing', 'bulat', 'bersudut'],
-                'correct' => 4
+                'correct' => 0
             ],
             [
                 'question' => '37. Manakah yang berbeda?',
                 'options' => ['kunci', 'palang pintu', 'gerendel', 'gunting', 'obeng'],
-                'correct' => 1
+                'correct' => 3
             ],
             [
                 'question' => '38. Manakah yang berbeda?',
                 'options' => ['jembatan', 'batas', 'perkawinan', 'pagar', 'masyarakat'],
-                'correct' => 1
+                'correct' => 4
             ],
             [
                 'question' => '39. Manakah yang berbeda?',

@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('option_image')->nullable();
 
             $table->boolean('is_correct')->default(false);
+            $table->integer('answer_score')->default(0);
+
             $table->timestamps();
         });
     }

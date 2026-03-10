@@ -25,7 +25,7 @@ class Question3Seeder extends Seeder
                 'options' => [
                     ['text' => 'menghapal', 'is_correct' => false],
                     ['text' => 'mengenai', 'is_correct' => false],
-                    ['text' => 'melupakan', 'is_correct' => true], // C
+                    ['text' => 'melupakan', 'is_correct' => true], 
                     ['text' => 'berpikir', 'is_correct' => false],
                     ['text' => 'memimpikan', 'is_correct' => false],
                 ]
@@ -37,8 +37,8 @@ class Question3Seeder extends Seeder
                     ['text' => 'sarang', 'is_correct' => false],
                     ['text' => 'langit', 'is_correct' => false],
                     ['text' => 'pagar', 'is_correct' => false],
-                    ['text' => 'pohon', 'is_correct' => true], // D
-                    ['text' => 'sangkar', 'is_correct' => false],
+                    ['text' => 'pohon', 'is_correct' => false], 
+                    ['text' => 'sangkar', 'is_correct' => true],
                 ]
             ],
 
@@ -48,7 +48,7 @@ class Question3Seeder extends Seeder
                     ['text' => 'roda', 'is_correct' => false],
                     ['text' => 'poros', 'is_correct' => false],
                     ['text' => 'ban', 'is_correct' => false],
-                    ['text' => 'jalan raya', 'is_correct' => true], // D
+                    ['text' => 'jalan raya', 'is_correct' => true],
                     ['text' => 'kecepatan', 'is_correct' => false],
                 ]
             ],
@@ -59,7 +59,7 @@ class Question3Seeder extends Seeder
                     ['text' => 'arloji', 'is_correct' => false],
                     ['text' => 'berlian', 'is_correct' => false],
                     ['text' => 'permata', 'is_correct' => false],
-                    ['text' => 'gelang', 'is_correct' => true], // D
+                    ['text' => 'gelang', 'is_correct' => true],
                     ['text' => 'platina', 'is_correct' => false],
                 ]
             ],
@@ -70,7 +70,7 @@ class Question3Seeder extends Seeder
                     ['text' => 'bentuk', 'is_correct' => false],
                     ['text' => 'gambar', 'is_correct' => false],
                     ['text' => 'segi empat', 'is_correct' => false],
-                    ['text' => 'kubus', 'is_correct' => true], // D
+                    ['text' => 'kubus', 'is_correct' => true],
                     ['text' => 'piramida', 'is_correct' => false],
                 ]
             ],
@@ -78,10 +78,10 @@ class Question3Seeder extends Seeder
             [
                 'question' => '46. Saran : kepustakaan = Merundingkan : ?',
                 'options' => [
-                    ['text' => 'menawarkan', 'is_correct' => false],
+                    ['text' => 'menawarkan', 'is_correct' => true],
                     ['text' => 'menentukan', 'is_correct' => false],
                     ['text' => 'menilai', 'is_correct' => false],
-                    ['text' => 'menimbang', 'is_correct' => true], // D
+                    ['text' => 'menimbang', 'is_correct' => false],
                     ['text' => 'merenungkan', 'is_correct' => false],
                 ]
             ],
@@ -92,7 +92,7 @@ class Question3Seeder extends Seeder
                     ['text' => 'mencium', 'is_correct' => false],
                     ['text' => 'bernapas', 'is_correct' => false],
                     ['text' => 'mengecap', 'is_correct' => false],
-                    ['text' => 'tengik', 'is_correct' => true], // D
+                    ['text' => 'tengik', 'is_correct' => true], 
                     ['text' => 'asin', 'is_correct' => false],
                 ]
             ],
@@ -101,7 +101,7 @@ class Question3Seeder extends Seeder
                 'question' => '48. Darah : pembuluh = Air : ?',
                 'options' => [
                     ['text' => 'pintu air', 'is_correct' => false],
-                    ['text' => 'sungai', 'is_correct' => true], // B
+                    ['text' => 'sungai', 'is_correct' => true],
                     ['text' => 'talang', 'is_correct' => false],
                     ['text' => 'hujan', 'is_correct' => false],
                     ['text' => 'ember', 'is_correct' => false],
@@ -113,9 +113,9 @@ class Question3Seeder extends Seeder
                 'options' => [
                     ['text' => 'penyinaran', 'is_correct' => false],
                     ['text' => 'mata', 'is_correct' => false],
-                    ['text' => 'melihat', 'is_correct' => true], // C
+                    ['text' => 'melihat', 'is_correct' => false],
                     ['text' => 'cahaya', 'is_correct' => false],
-                    ['text' => 'pelindung', 'is_correct' => false],
+                    ['text' => 'pelindung', 'is_correct' => true],
                 ]
             ],
 
@@ -125,8 +125,8 @@ class Question3Seeder extends Seeder
                     ['text' => 'palu godam', 'is_correct' => false],
                     ['text' => 'pedagang besi', 'is_correct' => false],
                     ['text' => 'api', 'is_correct' => false],
-                    ['text' => 'tukang emas', 'is_correct' => false],
-                    ['text' => 'besi tempa', 'is_correct' => true], // E
+                    ['text' => 'tukang emas', 'is_correct' => true],
+                    ['text' => 'besi tempa', 'is_correct' => false],
                 ]
             ],
 
@@ -134,8 +134,8 @@ class Question3Seeder extends Seeder
                 'question' => '51. Buta : warna = Tuli : ?',
                 'options' => [
                     ['text' => 'pendengaran', 'is_correct' => false],
-                    ['text' => 'mendengar', 'is_correct' => true], // B
-                    ['text' => 'nada', 'is_correct' => false],
+                    ['text' => 'mendengar', 'is_correct' => false],
+                    ['text' => 'nada', 'is_correct' => true],
                     ['text' => 'kata', 'is_correct' => false],
                     ['text' => 'telinga', 'is_correct' => false],
                 ]
@@ -146,9 +146,9 @@ class Question3Seeder extends Seeder
                 'options' => [
                     ['text' => 'penghinaan', 'is_correct' => false],
                     ['text' => 'pidato', 'is_correct' => false],
-                    ['text' => 'kelakar', 'is_correct' => false],
+                    ['text' => 'kelakar', 'is_correct' => true],
                     ['text' => 'kesan', 'is_correct' => false],
-                    ['text' => 'ayat', 'is_correct' => true], // E
+                    ['text' => 'ayat', 'is_correct' => false],
                 ]
             ],
 
@@ -157,8 +157,8 @@ class Question3Seeder extends Seeder
                 'options' => [
                     ['text' => 'suka cita', 'is_correct' => false],
                     ['text' => 'sakit hati', 'is_correct' => false],
-                    ['text' => 'suasana hati', 'is_correct' => false],
-                    ['text' => 'sedih', 'is_correct' => true], // D
+                    ['text' => 'suasana hati', 'is_correct' => true],
+                    ['text' => 'sedih', 'is_correct' => false],
                     ['text' => 'rindu', 'is_correct' => false],
                 ]
             ],
@@ -168,7 +168,7 @@ class Question3Seeder extends Seeder
                 'options' => [
                     ['text' => 'bahan sandang', 'is_correct' => false],
                     ['text' => 'domba', 'is_correct' => false],
-                    ['text' => 'sutra', 'is_correct' => true], // C
+                    ['text' => 'sutra', 'is_correct' => true],
                     ['text' => 'jas', 'is_correct' => false],
                     ['text' => 'tekstil', 'is_correct' => false],
                 ]
@@ -178,9 +178,9 @@ class Question3Seeder extends Seeder
                 'question' => '55. Ketinggian puncak : tekanan udara = ketinggian nada : ?',
                 'options' => [
                     ['text' => 'garpu tala', 'is_correct' => false],
-                    ['text' => 'sopran', 'is_correct' => true], // B
+                    ['text' => 'sopran', 'is_correct' => false],
                     ['text' => 'nyanyian', 'is_correct' => false],
-                    ['text' => 'panjang senar', 'is_correct' => false],
+                    ['text' => 'panjang senar', 'is_correct' => true],
                     ['text' => 'suara', 'is_correct' => false],
                 ]
             ],
@@ -188,9 +188,9 @@ class Question3Seeder extends Seeder
             [
                 'question' => '56. Negara : revolusi = Hidup : ?',
                 'options' => [
-                    ['text' => 'biologi', 'is_correct' => true], // A
+                    ['text' => 'biologi', 'is_correct' => false],
                     ['text' => 'keturunan', 'is_correct' => false],
-                    ['text' => 'mutasi', 'is_correct' => false],
+                    ['text' => 'mutasi', 'is_correct' => true],
                     ['text' => 'seleksi', 'is_correct' => false],
                     ['text' => 'ilmu hewan', 'is_correct' => false],
                 ]
@@ -201,8 +201,8 @@ class Question3Seeder extends Seeder
                 'options' => [
                     ['text' => 'haus', 'is_correct' => false],
                     ['text' => 'khatulistiwa', 'is_correct' => false],
-                    ['text' => 'es', 'is_correct' => false],
-                    ['text' => 'matahari', 'is_correct' => true], // D
+                    ['text' => 'es', 'is_correct' => true],
+                    ['text' => 'matahari', 'is_correct' => false],
                     ['text' => 'dingin', 'is_correct' => false],
                 ]
             ],
@@ -213,8 +213,8 @@ class Question3Seeder extends Seeder
                     ['text' => 'dipalu', 'is_correct' => false],
                     ['text' => 'digergaji', 'is_correct' => false],
                     ['text' => 'dituang', 'is_correct' => false],
-                    ['text' => 'dikikir', 'is_correct' => false],
-                    ['text' => 'ditempa', 'is_correct' => true], // E
+                    ['text' => 'dikikir', 'is_correct' => true],
+                    ['text' => 'ditempa', 'is_correct' => false],
                 ]
             ],
 
@@ -222,10 +222,10 @@ class Question3Seeder extends Seeder
                 'question' => '59. Olahragawan : lembing = Cendekiawan : ?',
                 'options' => [
                     ['text' => 'perpustakaan', 'is_correct' => false],
-                    ['text' => 'penelitian', 'is_correct' => true], // B
+                    ['text' => 'penelitian', 'is_correct' => false],
                     ['text' => 'karya', 'is_correct' => false],
                     ['text' => 'studi', 'is_correct' => false],
-                    ['text' => 'mikroskop', 'is_correct' => false],
+                    ['text' => 'mikroskop', 'is_correct' => true],
                 ]
             ],
 
@@ -235,8 +235,8 @@ class Question3Seeder extends Seeder
                     ['text' => 'pemadam api', 'is_correct' => false],
                     ['text' => 'obor', 'is_correct' => false],
                     ['text' => 'letupan', 'is_correct' => false],
-                    ['text' => 'korek api', 'is_correct' => true], // D
-                    ['text' => 'lautan api', 'is_correct' => false],
+                    ['text' => 'korek api', 'is_correct' => false],
+                    ['text' => 'lautan api', 'is_correct' => true],
                 ]
             ],
 

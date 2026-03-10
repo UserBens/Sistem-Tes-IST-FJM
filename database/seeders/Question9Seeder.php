@@ -42,26 +42,26 @@ class Question9Seeder extends Seeder
         ];
 
         $answers = [
-            'b',
-            'c',
-            'e',
-            'a',
-            'b',
             'd',
-            'd',
-            'c',
-            'e',
-            'b',
-            'b',
-            'd',
-            'a',
-            'e',
-            'a',
             'e',
             'b',
             'a',
             'c',
-            'c'
+            'a',
+            'd',
+            'e',
+            'c',
+            'b',
+            'b',
+            'a',
+            'e',
+            'c',
+            'd',
+            'b',
+            'e',
+            'a',
+            'c',
+            'd'
         ];
 
         $letters = ['a', 'b', 'c', 'd', 'e'];

@@ -355,6 +355,33 @@ class SubtestSeeder extends Seeder
             'question_duration' => 10,
             'order' => 9,
             'instruction' => "
+                Hafalkan kata-kata di bawah ini selama 3 menit.
+
+                BUNGA      : SOKA, LARAT, FLAMBOYAN, YASMIN, DAHLIA
+                PERKAKAS   : WAJAN, JARUM, KIKIR, CANGKUL, PALU
+                BURUNG     : ITIK, ELANG, WALET, TEKUKUR, NURI
+                KESENIAN   : QUINTET, ARCA, OPERA, UKIRAN, GAMELAN
+                BINATANG   : RUSA, MUSANG, BERUANG, HARIMAU, ZEBRA
+
+                BUNGA	    : SOKA, LARAT, FLAMBOYAN, YASMIN, DAHLIA 
+                PERKAKAS	: WAJAN, JARUM, KIKIR, CANGKUL, PALU 
+                BURUNG  	: ITIK, ELANG, WALET, TERUKUR, NURI 
+                KESENIAN	: QUATET, ARCA, OPERA, UKIRAN, GAMELAN 
+                BINATANG	: RUSA, MUSANG, BERUANG, HARIMAU, ZEBRA
+
+                BUNGA	    : SOKA, LARAT, FLAMBOYAN, YASMIN, DAHLIA 
+                PERKAKAS	: WAJAN, JARUM, KIKIR, CANGKUL, PALU 
+                BURUNG	    : ITIK, ELANG, WALET, TERUKUR, NURI 
+                KESENIAN	: QUATET, ARCA, OPERA, UKIRAN, GAMELAN 
+                BINATANG	: RUSA, MUSANG, BERUANG, HARIMAU, ZEBRA
+
+                BUNGA	    : SOKA, LARAT, FLAMBOYAN, YASMIN, DAHLIA 
+                PERKAKAS	: WAJAN, JARUM, KIKIR, CANGKUL, PALU 
+                BURUNG	    : ITIK, ELANG, WALET, TERUKUR, NURI 
+                KESENIAN	: QUATET, ARCA, OPERA, UKIRAN, GAMELAN 
+                BINATANG	: RUSA, MUSANG, BERUANG, HARIMAU, ZEBRA
+                -----------------------------------------------------
+
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 09
                 (Soal-soal No. 157 – 176)
 
@@ -391,59 +418,7 @@ class SubtestSeeder extends Seeder
                 e) binatang
 
                 Jawabannya adalah e, karena Zebra termasuk dalam jenis binatang.
-                ",
-            'instruction_image' => null
-        ]);
 
-        Subtest::create([
-            'subtest_name' => 'Subtest Hafalan',
-            'instruction_duration' => 3,
-            'question_duration' => 0,
-            'order' => 10,
-            'instruction' => "
-                Hafalkan kata-kata di bawah ini selama 3 menit.
-
-                BUNGA : SOKA, LARAT, FLAMBOYAN, YASMIN, DAHLIA
-                PERKAKAS : WAJAN, JARUM, KIKIR, CANGKUL, PALU
-                BURUNG : ITIK, ELANG, WALET, TEKUKUR, NURI
-                KESENIAN : QUINTET, ARCA, OPERA, UKIRAN, GAMELAN
-                BINATANG : RUSA, MUSANG, BERUANG, HARIMAU, ZEBRA
-
-
-                ME
-
-
-                Hafalkan kata-kata di bawah ini selama 3 menit.
-
-                BUNGA : SOKA, LARAT, FLAMBOYAN, YASMIN, DAHLIA
-                PERKAKAS : WAJAN, JARUM, KIKIR, CANGKUL, PALU
-                BURUNG : ITIK, ELANG, WALET, TERUKUR, NURI
-                KESENIAN : QUATET, ARCA, OPERA, UKIRAN, GAMELAN
-                BINATANG : RUSA, MUSANG, BERUANG, HARIMAU, ZEBRA
-
-
-                ME
-
-
-                Hafalkan kata-kata di bawah ini selama 3 menit.
-
-                BUNGA : SOKA, LARAT, FLAMBOYAN, YASMIN, DAHLIA
-                PERKAKAS : WAJAN, JARUM, KIKIR, CANGKUL, PALU
-                BURUNG : ITIK, ELANG, WALET, TERUKUR, NURI
-                KESENIAN : QUATET, ARCA, OPERA, UKIRAN, GAMELAN
-                BINATANG : RUSA, MUSANG, BERUANG, HARIMAU, ZEBRA
-
-
-                ME
-
-
-                Hafalkan kata-kata di bawah ini selama 3 menit.
-
-                BUNGA : SOKA, LARAT, FLAMBOYAN, YASMIN, DAHLIA
-                PERKAKAS : WAJAN, JARUM, KIKIR, CANGKUL, PALU
-                BURUNG : ITIK, ELANG, WALET, TERUKUR, NURI
-                KESENIAN : QUATET, ARCA, OPERA, UKIRAN, GAMELAN
-                BINATANG : RUSA, MUSANG, BERUANG, HARIMAU, ZEBRA
                 ",
             'instruction_image' => null
         ]);

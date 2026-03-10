@@ -166,11 +166,14 @@ class QuestionController extends Controller
             // =====================
             if ($answer->essay_answer && $question->question_type == 'essay') {
 
-                if (
-                    strtolower(trim($answer->essay_answer)) ==
-                    strtolower(trim($question->correct_answer))
-                ) {
-                    $score += $question->weight;
+                $userAnswer = strtolower(trim($answer->essay_answer));
+
+                $option = QuestionOption::where('question_id', $question->id)
+                    ->whereRaw('LOWER(option_text) = ?', [$userAnswer])
+                    ->first();
+
+                if ($option) {
+                    $score += $option->answer_score;
                 }
             }
 
