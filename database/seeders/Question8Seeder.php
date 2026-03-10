@@ -27,26 +27,26 @@ class Question8Seeder extends Seeder
         ];
 
         $questions = [
-            ['question' => '137.png', 'options' => $group_options, 'answer' => 'b'], // ← sesuaikan jawaban
-            ['question' => '138.png', 'options' => $group_options, 'answer' => 'a'], // ← sesuaikan jawaban
-            ['question' => '139.png', 'options' => $group_options, 'answer' => 'c'], // ← sesuaikan jawaban
-            ['question' => '140.png', 'options' => $group_options, 'answer' => 'd'], // ← sesuaikan jawaban
-            ['question' => '141.png', 'options' => $group_options, 'answer' => 'e'], // ← sesuaikan jawaban
-            ['question' => '142.png', 'options' => $group_options, 'answer' => 'a'], // ← sesuaikan jawaban
-            ['question' => '143.png', 'options' => $group_options, 'answer' => 'b'], // ← sesuaikan jawaban
-            ['question' => '144.png', 'options' => $group_options, 'answer' => 'c'], // ← sesuaikan jawaban
-            ['question' => '145.png', 'options' => $group_options, 'answer' => 'd'], // ← sesuaikan jawaban
-            ['question' => '146.png', 'options' => $group_options, 'answer' => 'e'], // ← sesuaikan jawaban
-            ['question' => '147.png', 'options' => $group_options, 'answer' => 'a'], // ← sesuaikan jawaban
-            ['question' => '148.png', 'options' => $group_options, 'answer' => 'b'], // ← sesuaikan jawaban
-            ['question' => '149.png', 'options' => $group_options, 'answer' => 'a'], // ← sesuaikan jawaban
-            ['question' => '150.png', 'options' => $group_options, 'answer' => 'c'], // ← sesuaikan jawaban
-            ['question' => '151.png', 'options' => $group_options, 'answer' => 'e'], // ← sesuaikan jawaban
-            ['question' => '152.png', 'options' => $group_options, 'answer' => 'e'], // ← sesuaikan jawaban
-            ['question' => '153.png', 'options' => $group_options, 'answer' => 'b'], // ← sesuaikan jawaban
-            ['question' => '154.png', 'options' => $group_options, 'answer' => 'd'], // ← sesuaikan jawaban
-            ['question' => '155.png', 'options' => $group_options, 'answer' => 'b'], // ← sesuaikan jawaban
-            ['question' => '156.png', 'options' => $group_options, 'answer' => 'e'], // ← sesuaikan jawaban
+            ['question' => '137.png', 'options' => $group_options, 'answer' => 'c'],
+            ['question' => '138.png', 'options' => $group_options, 'answer' => 'a'],
+            ['question' => '139.png', 'options' => $group_options, 'answer' => 'd'],
+            ['question' => '140.png', 'options' => $group_options, 'answer' => 'e'],
+            ['question' => '141.png', 'options' => $group_options, 'answer' => 'b'],
+            ['question' => '142.png', 'options' => $group_options, 'answer' => 'a'],
+            ['question' => '143.png', 'options' => $group_options, 'answer' => 'd'],
+            ['question' => '144.png', 'options' => $group_options, 'answer' => 'b'],
+            ['question' => '145.png', 'options' => $group_options, 'answer' => 'e'],
+            ['question' => '146.png', 'options' => $group_options, 'answer' => 'c'],
+            ['question' => '147.png', 'options' => $group_options, 'answer' => 'b'],
+            ['question' => '148.png', 'options' => $group_options, 'answer' => 'b'],
+            ['question' => '149.png', 'options' => $group_options, 'answer' => 'b'],
+            ['question' => '150.png', 'options' => $group_options, 'answer' => 'b'],
+            ['question' => '151.png', 'options' => $group_options, 'answer' => 'b'],
+            ['question' => '152.png', 'options' => $group_options, 'answer' => 'd'],
+            ['question' => '153.png', 'options' => $group_options, 'answer' => 'b'],
+            ['question' => '154.png', 'options' => $group_options, 'answer' => 'b'],
+            ['question' => '155.png', 'options' => $group_options, 'answer' => 'd'],
+            ['question' => '156.png', 'options' => $group_options, 'answer' => 'b'],
         ];
 
         foreach ($questions as $q) {

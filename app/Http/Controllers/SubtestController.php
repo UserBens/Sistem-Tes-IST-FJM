@@ -9,60 +9,6 @@ use Illuminate\Http\Request;
 
 class SubtestController extends Controller
 {
-    // public function show($id)
-    // {
-    //     $subtest = Subtest::findOrFail($id);
-
-    //     return view('subtest.show', compact('subtest'));
-    // }
-
-    // public function show($id)
-    // {
-    //     $participantId = session('participant_id');
-
-    //     if (!$participantId) {
-    //         return redirect()->route('participant.create')
-    //             ->with('error', 'Silakan isi data diri terlebih dahulu.');
-    //     }
-
-    //     // SUBTEST YANG BOLEH DIAKSES
-    //     $currentSubtest = session('current_subtest');
-
-    //     // jika session belum ada maka set subtest pertama
-    //     if (!$currentSubtest) {
-
-    //         $firstSubtest = Subtest::orderBy('id')->first();
-
-    //         session(['current_subtest' => $firstSubtest->id]);
-
-    //         $currentSubtest = $firstSubtest->id;
-    //     }
-
-    //     // jika peserta mencoba lompat subtest
-    //     if ($id != $currentSubtest) {
-    //         return redirect()->route('subtests.show', $currentSubtest);
-    //     }
-
-    //     $subtest = Subtest::findOrFail($id);
-
-    //     $attempt = TestAttempts::firstOrCreate([
-    //         'participant_id' => $participantId,
-    //         'subtest_id' => $subtest->id
-    //     ]);
-
-    //     if (!$attempt->instruction_started_at) {
-    //         $attempt->instruction_started_at = now();
-    //         $attempt->save();
-    //     }
-
-    //     $endTime = Carbon::parse($attempt->instruction_started_at)
-    //         ->addMinutes($subtest->duration);
-
-    //     $timeLeft = max(0, $endTime->timestamp - now()->timestamp);
-
-    //     return view('subtest.show', compact('subtest', 'timeLeft'));
-    // }
-
     public function show($id)
     {
         $participantId = session('participant_id');

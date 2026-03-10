@@ -18,13 +18,6 @@ class Question7Seeder extends Seeder
     {
         $subtest = Subtest::where('order', 7)->first();
 
-        // ============================================================
-        // File gambar langsung di: storage/app/public/
-        // Contoh: storage/app/public/117.png
-        //         storage/app/public/group1_a.png
-        // ============================================================
-
-        // Pilihan GRUP 1 (a=setengah lingkaran, b=oval, c=bentuk M, d=oval miring, e=kipas)
         $group1_options = [
             'a' => 'group1_a.png',
             'b' => 'group1_b.png',
@@ -33,7 +26,6 @@ class Question7Seeder extends Seeder
             'e' => 'group1_e.png',
         ];
 
-        // Pilihan GRUP 2 (a=persegi panjang, b=segitiga, c=kotak, d=segitiga besar, e=jajargenjang)
         $group2_options = [
             'a' => 'group2_a.png',
             'b' => 'group2_b.png',
@@ -44,34 +36,31 @@ class Question7Seeder extends Seeder
 
         $questions = [
 
-            // --- GRUP 1: Soal 117–128 ---
-            ['question' => '117.png', 'options' => $group1_options, 'answer' => 'b'], // ← sesuaikan jawaban
-            ['question' => '118.png', 'options' => $group1_options, 'answer' => 'a'], // ← sesuaikan jawaban
-            ['question' => '119.png', 'options' => $group1_options, 'answer' => 'c'], // ← sesuaikan jawaban
-            ['question' => '120.png', 'options' => $group1_options, 'answer' => 'd'], // ← sesuaikan jawaban
-            ['question' => '121.png', 'options' => $group1_options, 'answer' => 'e'], // ← sesuaikan jawaban
-            ['question' => '122.png', 'options' => $group1_options, 'answer' => 'a'], // ← sesuaikan jawaban
-            ['question' => '123.png', 'options' => $group1_options, 'answer' => 'b'], // ← sesuaikan jawaban
-            ['question' => '124.png', 'options' => $group1_options, 'answer' => 'c'], // ← sesuaikan jawaban
-            ['question' => '125.png', 'options' => $group1_options, 'answer' => 'd'], // ← sesuaikan jawaban
-            ['question' => '126.png', 'options' => $group1_options, 'answer' => 'e'], // ← sesuaikan jawaban
-            ['question' => '127.png', 'options' => $group1_options, 'answer' => 'a'], // ← sesuaikan jawaban
-            ['question' => '128.png', 'options' => $group1_options, 'answer' => 'b'], // ← sesuaikan jawaban
+            // ===== GRUP 1 (117–128) =====
+            ['question' => '117.png', 'options' => $group1_options, 'answer' => 'a'],
+            ['question' => '118.png', 'options' => $group1_options, 'answer' => 'b'],
+            ['question' => '119.png', 'options' => $group1_options, 'answer' => 'e'],
+            ['question' => '120.png', 'options' => $group1_options, 'answer' => 'b'],
+            ['question' => '121.png', 'options' => $group1_options, 'answer' => 'c'],
+            ['question' => '122.png', 'options' => $group1_options, 'answer' => 'e'],
+            ['question' => '123.png', 'options' => $group1_options, 'answer' => 'd'],
+            ['question' => '124.png', 'options' => $group1_options, 'answer' => 'b'],
+            ['question' => '125.png', 'options' => $group1_options, 'answer' => 'a'],
+            ['question' => '126.png', 'options' => $group1_options, 'answer' => 'e'],
+            ['question' => '127.png', 'options' => $group1_options, 'answer' => 'a'],
+            ['question' => '128.png', 'options' => $group1_options, 'answer' => 'b'],
 
-            // --- GRUP 2: Soal 129–136 ---
-            ['question' => '129.png', 'options' => $group2_options, 'answer' => 'a'], // ← sesuaikan jawaban
-            ['question' => '130.png', 'options' => $group2_options, 'answer' => 'c'], // ← sesuaikan jawaban
-            ['question' => '131.png', 'options' => $group2_options, 'answer' => 'e'], // ← sesuaikan jawaban
-            ['question' => '132.png', 'options' => $group2_options, 'answer' => 'e'], // ← sesuaikan jawaban
-            ['question' => '133.png', 'options' => $group2_options, 'answer' => 'b'], // ← sesuaikan jawaban
-            ['question' => '134.png', 'options' => $group2_options, 'answer' => 'd'], // ← sesuaikan jawaban
-            ['question' => '135.png', 'options' => $group2_options, 'answer' => 'b'], // ← sesuaikan jawaban
-            ['question' => '136.png', 'options' => $group2_options, 'answer' => 'e'], // ← sesuaikan jawaban
+            // ===== GRUP 2 (129–136) =====
+            ['question' => '129.png', 'options' => $group2_options, 'answer' => 'd'],
+            ['question' => '130.png', 'options' => $group2_options, 'answer' => 'a'],
+            ['question' => '131.png', 'options' => $group2_options, 'answer' => 'b'],
+            ['question' => '132.png', 'options' => $group2_options, 'answer' => 'e'],
+            ['question' => '133.png', 'options' => $group2_options, 'answer' => 'b'],
+            ['question' => '134.png', 'options' => $group2_options, 'answer' => 'd'],
+            ['question' => '135.png', 'options' => $group2_options, 'answer' => 'd'],
+            ['question' => '136.png', 'options' => $group2_options, 'answer' => 'a'],
         ];
 
-        // ============================================================
-        // Insert ke database
-        // ============================================================
         foreach ($questions as $q) {
 
             $question = Question::create([
