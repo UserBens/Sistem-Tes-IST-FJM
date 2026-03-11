@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('subtests', function (Blueprint $table) {
             $table->id();
             $table->string('subtest_name');
+            $table->string('code')->nullable();
             $table->integer('instruction_duration');
             $table->integer('question_duration');
             $table->text('instruction');

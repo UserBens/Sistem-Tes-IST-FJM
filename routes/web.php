@@ -5,6 +5,7 @@ use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubtestController;
+use App\Models\IstResult;
 use App\Models\Participants;
 use App\Models\Question;
 use App\Models\Subtest;
@@ -46,9 +47,13 @@ Route::middleware('check.login')->group(function () {
                 ->orderBy('subtest_id')
                 ->get();
 
+            // Ambil hasil IST yang sudah dihitung (SW, IQ, Dominasi, dll)
+            $istResult = IstResult::where('participant_id', $participant->id)->first();
+
             return view('finish', compact(
                 'participant',
-                'attempts'
+                'attempts',
+                'istResult'
             ));
         })->name('test.finish');
     });

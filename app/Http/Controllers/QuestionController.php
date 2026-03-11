@@ -3,15 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\ParticipantAnswer;
+use App\Models\Participants;
 use App\Models\Question;
 use App\Models\QuestionOption;
 use App\Models\Subtest;
 use App\Models\TestAttempts;
+use App\Services\ISTScoreService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
+    public function __construct(
+        private readonly ISTScoreService $istScoreService
+    ) {}
+
     public function question1(Request $request, $subtestId)
     {
         $participantId = session('participant_id');
@@ -208,11 +214,24 @@ class QuestionController extends Controller
             ->first();
 
         if ($nextSubtest) {
-
             session(['current_subtest' => $nextSubtest->id]);
-
             return redirect()->route('subtests.show', $nextSubtest->id);
         }
+
+        // ============================================================
+        // SEMUA SUBTEST SELESAI -> HITUNG IST SCORE LENGKAP
+        // ============================================================
+        $participant = Participants::findOrFail($participantId);
+
+        // Update status peserta
+        $participant->update([
+            'test_finished_at' => now(),
+            'status'           => 'finished',
+        ]);
+
+        // Hitung dan simpan hasil IST (SW, IQ, Kategori, Dominasi)
+        $this->istScoreService->calculateAndSave($participant);
+
 
         return redirect()->route('test.finish');
     }

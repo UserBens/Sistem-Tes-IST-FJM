@@ -16,6 +16,7 @@ class SubtestSeeder extends Seeder
     {
         Subtest::create([
             'subtest_name' => 'Subtest 01',
+            'code' => 'SE',          // ← tambahkan ini
             'instruction_duration' => 3,
             'question_duration' => 10,
             'order' => 1,
@@ -55,6 +56,7 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 02',
+            'code' => 'WA',          // ← tambahkan ini
             'instruction_duration' => 3,
             'question_duration' => 10,
             'order' => 2,
@@ -97,6 +99,7 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 03',
+            'code' => 'AN',          // ← tambahkan ini
             'instruction_duration' => 3,
             'question_duration' => 10,
             'order' => 3,
@@ -144,6 +147,7 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 04',
+            'code' => 'GE',          // ← tambahkan ini
             'instruction_duration' => 3,
             'question_duration' => 10,
             'order' => 4,
@@ -179,6 +183,7 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 05',
+            'code' => 'ME',          // ← tambahkan ini
             'instruction_duration' => 3,
             'question_duration' => 10,
             'order' => 5,
@@ -221,6 +226,7 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 06',
+            'code' => 'RA',          // ← tambahkan ini
             'instruction_duration' => 3,
             'question_duration' => 10,
             'order' => 6,
@@ -260,6 +266,7 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 07',
+            'code' => 'ZR',          // ← tambahkan ini
             'instruction_duration' => 3,
             'question_duration' => 10,
             'order' => 7,
@@ -296,6 +303,7 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 08',
+            'code' => 'FA',          // ← tambahkan ini
             'instruction_duration' => 3,
             'question_duration' => 10,
             'order' => 8,
@@ -351,6 +359,7 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 09',
+            'code' => 'WU',          // ← tambahkan ini
             'instruction_duration' => 3,
             'question_duration' => 10,
             'order' => 9,

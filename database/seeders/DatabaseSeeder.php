@@ -33,6 +33,9 @@ class DatabaseSeeder extends Seeder
         $this->call(Question5Seeder::class);
         $this->call(Question6Seeder::class);
         $this->call(Question7Seeder::class);
+        $this->call(Question8Seeder::class);
         $this->call(Question9Seeder::class);
+        $this->call(IstIqNormsSeeder::class);
+        $this->call(IstSwNormSeeder::class);
     }
 }
