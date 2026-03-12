@@ -8,74 +8,75 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gradient-to-br from-blue-50 to-indigo-95 min-h-screen flex items-center justify-center p-4">
-    {{-- <div class="w-full max-w-2xl"> --}}
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-6">
 
-    <div class="bg-white shadow-xl rounded-2xl p-10 max-w-lg text-center">
+    <div class="w-full max-w-2xl">
 
-        <div class="flex justify-center mb-4">
-            <div class="bg-green-100 p-4 rounded-full">
-                <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
+        <div class="bg-white rounded-2xl shadow-xl p-8">
+
+            <!-- Header -->
+            <div class="text-center mb-8">
+
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-green-500 rounded-full mb-4">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+
+                <h1 class="text-2xl font-bold text-gray-800">
+                    Tes Selesai
+                </h1>
+
+                <p class="text-gray-600 mt-2">
+                    Terima kasih sudah mengerjakan tes ini
+                </p>
+
+                <p class="mt-3 font-semibold text-gray-700">
+                    {{ $participant->name ?? 'Peserta' }}
+                </p>
+
             </div>
-        </div>
 
-        <h1 class="text-2xl font-bold text-gray-800 mb-3">
-            Tes Selesai
-        </h1>
 
-        <p class="text-gray-700 mb-2 font-semibold">
-            {{ $participant->name ?? 'Peserta' }}
-        </p>
-
-        <p class="text-gray-600 mb-6">
-            Jawaban Anda sudah tersimpan.<br>
-            Terima kasih sudah mengerjakan tes ini.<br>
-            Semoga beruntung!!
-        </p>
-
-        <table class="table-auto w-full border border-gray-300 mb-6">
-            <thead>
-                <tr class="bg-gray-200 text-center">
-                    <th class="border p-2">Subtest</th>
-                    <th class="border p-2">Score</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach ($attempts as $attempt)
-                    <tr class="text-center">
-                        <td class="border p-2">
-                            {{ $attempt->subtest->subtest_name }}
-                        </td>
-
-                        <td class="border p-2 font-semibold text-indigo-600">
-                            {{ $attempt->score }}
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-
-        <div class="container">
             @if ($istResult)
 
-                {{-- IQ BOX --}}
-                <div class="iq-box">
-                    <div class="iq-label">Intelligence Quotient (IQ)</div>
-                    <div class="iq-value">{{ $istResult->iq ?? '—' }}</div>
-                    <div class="iq-category">{{ $istResult->iq_category ?? '—' }}</div>
+                <!-- IQ BOX -->
+                <div class="mb-6 p-6 bg-indigo-50 border border-indigo-200 rounded-xl text-center">
+
+                    <div class="text-sm text-indigo-700 font-medium">
+                        Intelligence Quotient (IQ)
+                    </div>
+
+                    <div class="text-4xl font-bold text-indigo-700 mt-2">
+                        {{ $istResult->iq ?? '—' }}
+                    </div>
+
+                    <div class="text-sm text-gray-600 mt-1">
+                        {{ $istResult->iq_category ?? '—' }}
+                    </div>
+
                 </div>
 
-                {{-- DOMINASI --}}
-                <div class="dominasi-box">
-                    <div class="dominasi-label">Dominasi Kemampuan:</div>
-                    <div class="dominasi-value">{{ $istResult->dominasi ?? '—' }}</div>
+
+                <!-- Dominasi -->
+                <div class="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg text-center">
+
+                    <div class="text-sm text-blue-700 font-medium">
+                        Dominasi Kemampuan
+                    </div>
+
+                    <div class="text-lg font-semibold text-blue-800 mt-1">
+                        {{ $istResult->dominasi ?? '—' }}
+                    </div>
+
                 </div>
 
-                {{-- TABEL HASIL SUBTEST --}}
-                <div class="section-title">Skor Per Subtest</div>
+
+                <!-- Judul -->
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">
+                    Skor Per Subtest
+                </h2>
+
 
                 @php
                     $subtests = [
@@ -89,95 +90,121 @@
                         'FA' => ['rw' => $istResult->rw_fa, 'sw' => $istResult->sw_fa, 'cat' => $istResult->cat_fa],
                         'WU' => ['rw' => $istResult->rw_wu, 'sw' => $istResult->sw_wu, 'cat' => $istResult->cat_wu],
                     ];
-
-                    $badgeMap = [
-                        'Sangat Tinggi' => 'badge-sangat-tinggi',
-                        'Tinggi' => 'badge-tinggi',
-                        'Cukup' => 'badge-cukup',
-                        'Sedang' => 'badge-sedang',
-                        'Rendah' => 'badge-rendah',
-                        'Sangat Rendah' => 'badge-sangat-rendah',
-                        'Defektif' => 'badge-defektif',
-                    ];
                 @endphp
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Subtest</th>
-                            <th>RW</th>
-                            <th>SW</th>
-                            <th>Kategori</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($subtests as $code => $data)
+
+                <!-- Tabel -->
+                <div class="overflow-x-auto">
+
+                    <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+
+                        <thead class="bg-indigo-600 text-white">
                             <tr>
-                                <td>{{ $code }}</td>
-                                <td>{{ $data['rw'] ?? 0 }}</td>
-                                <td>{{ $data['sw'] ?? '—' }}</td>
-                                <td>
-                                    @if ($data['cat'] && $data['cat'] !== '-')
-                                        <span class="badge {{ $badgeMap[$data['cat']] ?? 'badge-default' }}">
-                                            {{ $data['cat'] }}
-                                        </span>
-                                    @else
-                                        —
-                                    @endif
+                                <th class="p-3 text-left">Subtest</th>
+                                <th class="p-3 text-center">RW</th>
+                                <th class="p-3 text-center">SW</th>
+                                <th class="p-3 text-center">Kategori</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="divide-y">
+
+                            @foreach ($subtests as $code => $data)
+                                <tr class="bg-white">
+
+                                    <td class="p-3 font-semibold text-gray-700">
+                                        {{ $code }}
+                                    </td>
+
+                                    <td class="p-3 text-center">
+                                        {{ $data['rw'] ?? 0 }}
+                                    </td>
+
+                                    <td class="p-3 text-center">
+                                        {{ $data['sw'] ?? '—' }}
+                                    </td>
+
+                                    <td class="p-3 text-center text-gray-600">
+                                        {{ $data['cat'] ?? '—' }}
+                                    </td>
+
+                                </tr>
+                            @endforeach
+
+
+                            <!-- TOTAL -->
+                            <tr class="bg-gray-50 font-semibold">
+                                <td class="p-3">JML</td>
+                                <td class="p-3 text-center">{{ $istResult->total_rw }}</td>
+                                <td class="p-3 text-center">{{ $istResult->total_sw ?? '—' }}</td>
+                                <td class="p-3 text-center">—</td>
+                            </tr>
+
+
+                            <!-- IQ -->
+                            <tr class="bg-indigo-50 font-semibold">
+                                <td class="p-3">IQ</td>
+                                <td class="p-3 text-center">{{ $istResult->iq ?? '—' }}</td>
+                                <td class="p-3 text-center">—</td>
+                                <td class="p-3 text-center">{{ $istResult->iq_category ?? '—' }}</td>
+                            </tr>
+
+
+                            <!-- Dominasi -->
+                            <tr class="bg-blue-50 font-semibold">
+                                <td class="p-3">Dominasi</td>
+                                <td colspan="3" class="p-3 text-center">
+                                    {{ $istResult->dominasi ?? '—' }}
                                 </td>
                             </tr>
-                        @endforeach
 
-                        {{-- BARIS TOTAL --}}
-                        <tr class="total-row">
-                            <td>JML</td>
-                            <td>{{ $istResult->total_rw }}</td>
-                            <td>{{ $istResult->total_sw ?? '—' }}</td>
-                            <td>—</td>
-                        </tr>
+                        </tbody>
 
-                        {{-- BARIS IQ --}}
-                        <tr class="iq-row">
-                            <td>IQ</td>
-                            <td>{{ $istResult->iq ?? '—' }}</td>
-                            <td>—</td>
-                            <td>{{ $istResult->iq_category ?? '—' }}</td>
-                        </tr>
+                    </table>
 
-                        {{-- BARIS DOMINASI --}}
-                        <tr class="dominasi-row">
-                            <td>Dominasi</td>
-                            <td colspan="3">{{ $istResult->dominasi ?? '—' }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            @else
-                <div style="text-align:center; color:#718096; padding: 40px 0;">
-                    <p>Hasil belum tersedia. Silakan hubungi administrator.</p>
                 </div>
+            @else
+                <div class="text-center text-gray-500 py-8">
+                    Hasil belum tersedia. Silakan hubungi administrator.
+                </div>
+
             @endif
 
-            {{-- TOMBOL AKSI --}}
-            <div class="actions">
-                <button class="btn btn-primary" onclick="window.print()">🖨️ Cetak / Simpan PDF</button>
-                <a href="{{ route('participant.create') }}" class="btn btn-success">✅ Selesai</a>
+
+            <!-- Tombol -->
+            <div class="flex flex-col sm:flex-row gap-3 mt-8">
+
+                <button onclick="window.print()"
+                    class="flex-1 bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
+                    🖨️ Cetak / Simpan PDF
+                </button>
+
+                <a href="{{ route('participant.create') }}"
+                    class="flex-1 bg-green-600 text-white py-3 text-center rounded-lg font-semibold hover:bg-green-700 transition">
+                    ✅ Selesai
+                </a>
+
             </div>
+
+
+            <!-- Logout -->
+            <form action="{{ route('logout') }}" method="POST" class="mt-4">
+                @csrf
+
+                <button
+                    class="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-medium hover:bg-gray-300 transition">
+
+                    Kembali ke Halaman Login
+
+                </button>
+
+            </form>
+
 
         </div>
 
-        <form action="{{ route('logout') }}" method="POST">
-            @csrf
-
-            <button
-                class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold
-               hover:bg-indigo-700 transition">
-
-                Kembali ke Halaman Login
-
-            </button>
-        </form>
-
     </div>
+
 </body>
 
 </html>

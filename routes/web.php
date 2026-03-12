@@ -17,6 +17,13 @@ use App\Models\TestAttempts;
 Route::get('/', [LoginController::class, 'indexLogin'])->name('index.login');
 Route::post('/login', [LoginController::class, 'loginProcess'])->name('login.process');
 
+Route::middleware(['check.login', 'check.admin'])->group(function () {
+
+    Route::get('/dashboard', function () {
+        return view('dashboard.index');
+    })->name('dashboard');
+});
+
 Route::middleware('check.login')->group(function () {
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

@@ -37,5 +37,7 @@ class DatabaseSeeder extends Seeder
         $this->call(Question9Seeder::class);
         $this->call(IstIqNormsSeeder::class);
         $this->call(IstSwNormSeeder::class);
+        
+        $this->call(AdminSeeder::class);
     }
 }

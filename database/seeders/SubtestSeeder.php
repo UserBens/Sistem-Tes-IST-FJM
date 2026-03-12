@@ -17,8 +17,8 @@ class SubtestSeeder extends Seeder
         Subtest::create([
             'subtest_name' => 'Subtest 01',
             'code' => 'SE',          // ← tambahkan ini
-            'instruction_duration' => 3,
-            'question_duration' => 10,
+            'instruction_duration' => 0,
+            'question_duration' => 1,
             'order' => 1,
             'instruction' => "
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 01
@@ -57,8 +57,8 @@ class SubtestSeeder extends Seeder
         Subtest::create([
             'subtest_name' => 'Subtest 02',
             'code' => 'WA',          // ← tambahkan ini
-            'instruction_duration' => 3,
-            'question_duration' => 10,
+            'instruction_duration' => 0,
+            'question_duration' => 1,
             'order' => 2,
             'instruction' => "
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 02
@@ -100,8 +100,8 @@ class SubtestSeeder extends Seeder
         Subtest::create([
             'subtest_name' => 'Subtest 03',
             'code' => 'AN',          // ← tambahkan ini
-            'instruction_duration' => 3,
-            'question_duration' => 10,
+            'instruction_duration' => 0,
+            'question_duration' => 1,
             'order' => 3,
             'instruction' => "
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 03
@@ -148,8 +148,8 @@ class SubtestSeeder extends Seeder
         Subtest::create([
             'subtest_name' => 'Subtest 04',
             'code' => 'GE',          // ← tambahkan ini
-            'instruction_duration' => 3,
-            'question_duration' => 10,
+            'instruction_duration' => 0,
+            'question_duration' => 1,
             'order' => 4,
             'instruction' => "
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 04
@@ -184,8 +184,8 @@ class SubtestSeeder extends Seeder
         Subtest::create([
             'subtest_name' => 'Subtest 05',
             'code' => 'ME',          // ← tambahkan ini
-            'instruction_duration' => 3,
-            'question_duration' => 10,
+            'instruction_duration' => 0,
+            'question_duration' => 1,
             'order' => 5,
             'instruction' => "
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 05
@@ -227,8 +227,8 @@ class SubtestSeeder extends Seeder
         Subtest::create([
             'subtest_name' => 'Subtest 06',
             'code' => 'RA',          // ← tambahkan ini
-            'instruction_duration' => 3,
-            'question_duration' => 10,
+            'instruction_duration' => 0,
+            'question_duration' => 1,
             'order' => 6,
             'instruction' => "
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 06
@@ -267,8 +267,8 @@ class SubtestSeeder extends Seeder
         Subtest::create([
             'subtest_name' => 'Subtest 07',
             'code' => 'ZR',          // ← tambahkan ini
-            'instruction_duration' => 3,
-            'question_duration' => 10,
+            'instruction_duration' => 0,
+            'question_duration' => 1,
             'order' => 7,
             'instruction' => "
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 07
@@ -304,8 +304,8 @@ class SubtestSeeder extends Seeder
         Subtest::create([
             'subtest_name' => 'Subtest 08',
             'code' => 'FA',          // ← tambahkan ini
-            'instruction_duration' => 3,
-            'question_duration' => 10,
+            'instruction_duration' => 0,
+            'question_duration' => 1,
             'order' => 8,
             'instruction' => "
                 PETUNJUK DAN CONTOH UNTUK KELOMPOK SOAL 08
@@ -360,8 +360,8 @@ class SubtestSeeder extends Seeder
         Subtest::create([
             'subtest_name' => 'Subtest 09',
             'code' => 'WU',          // ← tambahkan ini
-            'instruction_duration' => 3,
-            'question_duration' => 10,
+            'instruction_duration' => 0,
+            'question_duration' => 1,
             'order' => 9,
             'instruction' => "
                 Hafalkan kata-kata di bawah ini selama 3 menit.
