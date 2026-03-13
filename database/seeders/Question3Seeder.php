@@ -78,8 +78,8 @@ class Question3Seeder extends Seeder
             [
                 'question' => '46. Saran : kepustakaan = Merundingkan : ?',
                 'options' => [
-                    ['text' => 'menawarkan', 'is_correct' => true],
-                    ['text' => 'menentukan', 'is_correct' => false],
+                    ['text' => 'menawarkan', 'is_correct' => false],
+                    ['text' => 'menentukan', 'is_correct' => true],
                     ['text' => 'menilai', 'is_correct' => false],
                     ['text' => 'menimbang', 'is_correct' => false],
                     ['text' => 'merenungkan', 'is_correct' => false],
@@ -180,8 +180,8 @@ class Question3Seeder extends Seeder
                     ['text' => 'garpu tala', 'is_correct' => false],
                     ['text' => 'sopran', 'is_correct' => false],
                     ['text' => 'nyanyian', 'is_correct' => false],
-                    ['text' => 'panjang senar', 'is_correct' => true],
-                    ['text' => 'suara', 'is_correct' => false],
+                    ['text' => 'panjang senar', 'is_correct' => false],
+                    ['text' => 'suara', 'is_correct' => true],
                 ]
             ],
 
@@ -213,8 +213,8 @@ class Question3Seeder extends Seeder
                     ['text' => 'dipalu', 'is_correct' => false],
                     ['text' => 'digergaji', 'is_correct' => false],
                     ['text' => 'dituang', 'is_correct' => false],
-                    ['text' => 'dikikir', 'is_correct' => true],
-                    ['text' => 'ditempa', 'is_correct' => false],
+                    ['text' => 'dikikir', 'is_correct' => false],
+                    ['text' => 'ditempa', 'is_correct' => true],
                 ]
             ],
 

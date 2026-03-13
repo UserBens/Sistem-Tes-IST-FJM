@@ -20,10 +20,11 @@ class Question2Seeder extends Seeder
 
         $questions = [
 
+
             [
                 'question' => '21. Manakah yang berbeda?',
                 'options' => ['lingkungan', 'panah', 'elips', 'busur', 'lengkungan'],
-                'correct' => 1
+                'correct' => 0
             ],
             [
                 'question' => '22. Manakah yang berbeda?',
@@ -120,6 +121,7 @@ class Question2Seeder extends Seeder
                 'options' => ['batu', 'baja', 'bulu', 'karet', 'kayu'],
                 'correct' => 2
             ],
+
 
         ];
 

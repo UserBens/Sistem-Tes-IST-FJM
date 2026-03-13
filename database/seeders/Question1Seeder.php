@@ -44,7 +44,7 @@ class Question1Seeder extends Seeder
             [
                 'question' => '5. Seekor kuda selalu mempunyai ……………',
                 'options' => ['kandang', 'ladam', 'pelana', 'kuku', 'surai'],
-                'correct' => 3
+                'correct' => 4
             ],
             [
                 'question' => '6. Seorang paman lebih tua dari kemenakannya.',
@@ -119,8 +119,9 @@ class Question1Seeder extends Seeder
             [
                 'question' => '20. Seorang anak yang berumur 10 tahun tingginya rata-rata ... cm',
                 'options' => ['150', '130', '110', '105', '115'],
-                'correct' => 1
+                'correct' => 0
             ],
+
         ];
 
         foreach ($questions as $q) {

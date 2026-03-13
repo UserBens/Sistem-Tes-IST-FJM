@@ -37,18 +37,18 @@ class Question7Seeder extends Seeder
         $questions = [
 
             // ===== GRUP 1 (117–128) =====
-            ['question' => '117.png', 'options' => $group1_options, 'answer' => 'a'],
-            ['question' => '118.png', 'options' => $group1_options, 'answer' => 'c'],
-            ['question' => '119.png', 'options' => $group1_options, 'answer' => 'b'],
-            ['question' => '120.png', 'options' => $group1_options, 'answer' => 'a'],
-            ['question' => '121.png', 'options' => $group1_options, 'answer' => 'd'],
-            ['question' => '122.png', 'options' => $group1_options, 'answer' => 'b'],
-            ['question' => '123.png', 'options' => $group1_options, 'answer' => 'c'],
-            ['question' => '124.png', 'options' => $group1_options, 'answer' => 'e'],
-            ['question' => '125.png', 'options' => $group1_options, 'answer' => 'e'],
-            ['question' => '126.png', 'options' => $group1_options, 'answer' => 'd'],
-            ['question' => '127.png', 'options' => $group1_options, 'answer' => 'e'],
-            ['question' => '128.png', 'options' => $group1_options, 'answer' => 'b'],
+            ['question' => '117.png', 'options' => $group1_options, 'answer' => 'b'],
+            ['question' => '118.png', 'options' => $group1_options, 'answer' => 'd'],
+            ['question' => '119.png', 'options' => $group1_options, 'answer' => 'c'],
+            ['question' => '120.png', 'options' => $group1_options, 'answer' => 'b'],
+            ['question' => '121.png', 'options' => $group1_options, 'answer' => 'e'],
+            ['question' => '122.png', 'options' => $group1_options, 'answer' => 'c'],
+            ['question' => '123.png', 'options' => $group1_options, 'answer' => 'd'],
+            ['question' => '124.png', 'options' => $group1_options, 'answer' => 'a'],
+            ['question' => '125.png', 'options' => $group1_options, 'answer' => 'a'],
+            ['question' => '126.png', 'options' => $group1_options, 'answer' => 'e'],
+            ['question' => '127.png', 'options' => $group1_options, 'answer' => 'a'],
+            ['question' => '128.png', 'options' => $group1_options, 'answer' => 'c'],
 
             // ===== GRUP 2 (129–136) =====
             ['question' => '129.png', 'options' => $group2_options, 'answer' => 'd'],
@@ -58,7 +58,7 @@ class Question7Seeder extends Seeder
             ['question' => '133.png', 'options' => $group2_options, 'answer' => 'b'],
             ['question' => '134.png', 'options' => $group2_options, 'answer' => 'd'],
             ['question' => '135.png', 'options' => $group2_options, 'answer' => 'c'],
-            ['question' => '136.png', 'options' => $group2_options, 'answer' => 'a'],
+            ['question' => '136.png', 'options' => $group2_options, 'answer' => 'c'],
         ];
 
         foreach ($questions as $q) {
