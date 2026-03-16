@@ -44,7 +44,7 @@
             </div>
 
             <!-- Timer Box -->
-            <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center justify-between">
+            <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center justify-between hidden">
                 <div class="flex items-center gap-2 text-red-600">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -53,6 +53,15 @@
                     <span class="text-sm font-medium">Sisa waktu:</span>
                 </div>
                 <span id="timer" class="text-2xl font-bold text-red-600 tabular-nums">--:--</span>
+            </div>
+
+            <div
+                class="mb-4 inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 border border-indigo-200 rounded-full text-indigo-700 text-sm font-medium">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Durasi: {{ $subtest->question_duration }} menit
             </div>
 
             <!-- Info Box -->
@@ -70,15 +79,11 @@
 
                             <!-- Question Number + Text -->
                             <div class="mb-4">
-                                <span
-                                    class="inline-flex items-center justify-center w-7 h-7 bg-indigo-600 text-white text-xs font-bold rounded-full mr-2">
-                                    {{ $index + 1 }}
-                                </span>
 
                                 @if (Str::endsWith($question->question, ['.png', '.jpg', '.jpeg', '.webp']))
                                     <img src="{{ asset('storage/' . $question->question) }}"
-                                        alt="Soal {{ $index + 1 }}"
-                                        class="mt-3 rounded-lg border border-gray-200 max-w-full">
+                                        alt="Soal {{ $index + 1 }}" onclick="openImage(this.src)"
+                                        class="mt-3 rounded-lg border border-gray-200 max-w-full cursor-pointer hover:opacity-80">
                                 @else
                                     <span class="text-gray-800 font-medium text-sm leading-relaxed">
                                         {{ $question->question }}
@@ -102,7 +107,8 @@
                                                 {{-- jika ada gambar --}}
                                                 @if ($option->option_image)
                                                     <img src="{{ asset('storage/' . $option->option_image) }}"
-                                                        class="h-16 object-contain">
+                                                        onclick="openImage(this.src)"
+                                                        class="h-16 object-contain cursor-pointer hover:opacity-80">
                                                 @else
                                                     <span class="text-sm text-gray-700">
                                                         {{ $option->option_text }}
@@ -190,7 +196,37 @@
             </form>
 
         </div>
+
+        <div id="viewer" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50"
+            onclick="closeViewer()">
+
+            <button onclick="closeViewer()" class="absolute top-5 right-8 text-white text-4xl font-bold">
+                ×
+            </button>
+
+            <img id="viewerImage" class="max-h-[95vh] max-w-[95vw] object-contain rounded-lg shadow-2xl">
+        </div>
+
     </div>
+
+    <script>
+        function openImage(src) {
+            const viewer = document.getElementById('viewer');
+            const img = document.getElementById('viewerImage');
+
+            img.src = src;
+
+            viewer.classList.remove('hidden');
+            viewer.classList.add('flex');
+        }
+
+        function closeViewer() {
+            const viewer = document.getElementById('viewer');
+
+            viewer.classList.add('hidden');
+            viewer.classList.remove('flex');
+        }
+    </script>
 
     <script>
         let timeLeft = {{ $timeLeft }};

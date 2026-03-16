@@ -30,27 +30,27 @@ class SubtestSeeder extends Seeder
                 Contoh 01
                 Seekor kuda mempunyai kesamaan terbanyak dengan seekor …..
 
-                a) kucing
-                b) bajing
-                c) keledai
-                d) lembu
-                e) anjing
+                - kucing
+                - bajing
+                - keledai
+                - lembu
+                - anjing
 
-                Jawaban yang benar ialah: c) keledai.
-                Oleh karena itu, pada lembar jawaban di belakang contoh 01, huruf c harus dicoret.
+                Jawaban yang benar ialah: keledai.
+                Oleh karena itu, pada pilhan jawaban di bawah contoh 01, kata keledai harus dipilih.
 
                 Contoh berikutnya:
 
                 Lawannya 'harapan' ialah …..
 
-                a) duka
-                b) putus asa
-                c) sengsara
-                d) cinta
-                e) benci
+                - duka
+                - putus asa
+                - sengsara
+                - cinta
+                - benci
 
-                Jawabannya ialah: b) putus asa.
-                Maka huruf b yang seharusnya dicoret.
+                Jawabannya ialah: putus asa.
+                Maka kata putus asa yang seharusnya dipilih.
                 "
         ]);
 
@@ -70,30 +70,30 @@ class SubtestSeeder extends Seeder
 
                 Contoh 02
 
-                a) meja
-                b) kursi
-                c) burung
-                d) lemari
-                e) tempat tidur
+                - meja
+                - kursi
+                - burung
+                - lemari
+                - tempat tidur
 
-                a), b), d), dan e) ialah perabot rumah (meubel).
-                c) burung bukan perabot rumah atau tidak memiliki kesamaan dengan keempat kata itu.
+                meja, kursi, lemari, dan tempat tidur ialah perabot rumah (meubel).
+                burung bukan perabot rumah atau tidak memiliki kesamaan dengan keempat kata itu.
 
-                Oleh karena itu, pada lembar jawaban di belakang contoh 02, huruf c harus dicoret.
+                Oleh karena itu, pada pilihan jawaban di bawah contoh 02, kata butung harus dipilih.
 
                 Contoh berikutnya:
 
-                a) duduk
-                b) berbaring
-                c) berdiri
-                d) berjalan
-                e) berjongkok
+                - duduk
+                - berbaring
+                - berdiri
+                - berjalan
+                - berjongkok
 
-                Pada a), b), c) dan e) orang berada dalam keadaan tidak bergerak,
-                sedangkan d) orang dalam keadaan bergerak.
+                Pada pilhan jawaban duduk, berbaring, berdiri dan berjongkok orang berada dalam keadaan tidak bergerak,
+                sedangkan berjalan orang dalam keadaan bergerak.
 
-                Maka jawaban yang benar ialah: d) berjalan.
-                Oleh karena itu huruf d yang seharusnya dicoret.
+                Maka jawaban yang benar ialah: berjalan.
+                Oleh karena itu kata berjalan yang seharusnya dipilih.
                 "
         ]);
 
@@ -116,32 +116,32 @@ class SubtestSeeder extends Seeder
 
                 Hutan : pohon = tembok : ?
 
-                a) batu bata
-                b) rumah
-                c) semen
-                d) putih
-                e) dinding
+                - batu bata
+                - rumah
+                - semen
+                - putih
+                - dinding
 
                 Hubungan antara hutan dan pohon ialah bahwa hutan terdiri atas pohon-pohon.
                 Maka hubungan antara tembok dan salah satu kata pilihan ialah bahwa tembok terdiri atas batu-batu bata.
 
-                Oleh karena itu, pada lembar jawaban di belakang contoh 03, huruf a harus dicoret.
+                Oleh karena itu, pada pilihan jawaban di bawah contoh 03, kata batu bata harus dipilih.
 
                 Contoh berikutnya:
 
                 Gelap : terang = basah : ?
 
-                a) hujan
-                b) hari
-                c) lembab
-                d) angin
-                e) kering
+                - hujan
+                - hari
+                - lembab
+                - angin
+                - kering
 
                 Gelap ialah lawannya dari terang,
                 maka untuk basah lawannya ialah kering.
 
-                Maka jawaban yang benar ialah: e) kering.
-                Oleh karena itu huruf e yang seharusnya dicoret.
+                Maka jawaban yang benar ialah: kering.
+                Oleh karena itu kata kering yang seharusnya dipilih.
                 "
         ]);
 
@@ -157,7 +157,7 @@ class SubtestSeeder extends Seeder
 
                 Ditentukan dua kata.
                 Carilah satu perkataan yang meliputi pengertian kedua kata tadi.
-                Tulislah perkataan itu pada lembar jawaban di belakang nomor soal yang sesuai.
+                ketiklah perkataan itu pada inputan text area jawaban di bawah soal.
 
                 Contoh 04
 
@@ -166,7 +166,7 @@ class SubtestSeeder extends Seeder
                 Perkataan 'burung' dapat meliputi pengertian kedua kata itu.
                 Maka jawabannya ialah 'burung'.
 
-                Oleh karena itu, pada lembar jawaban di belakang contoh 04, harus ditulis 'burung'.
+                Oleh karena itu, pada inputan text area jawaban di bawah soal contoh 04, harus diketik 'burung'.
 
                 burung
 
@@ -175,7 +175,7 @@ class SubtestSeeder extends Seeder
                 Gaun – celana
 
                 Pada contoh ini jawabannya ialah 'pakaian'.
-                Maka 'pakaian' yang seharusnya ditulis.
+                Maka 'pakaian' yang seharusnya diketik pada inputan text area jawaban dibawah soal itu.
 
                 Carilah selalu perkataan yang tepat yang dapat meliputi pengertian kedua kata itu.
                 "
@@ -183,7 +183,7 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 05',
-            'code' => 'ME',          // ← tambahkan ini
+            'code' => 'RA',          // ← tambahkan ini
             'instruction_duration' => 0,
             'question_duration' => 1,
             'order' => 5,
@@ -199,16 +199,16 @@ class SubtestSeeder extends Seeder
 
                 Jawabannya ialah: 75
 
-                Perhatikan cara menjawab di atas lembar jawaban!
+                Perhatikan cara menjawab di piilhan angka yang sudah disediakan dibawah soal!
 
-                Pada lembar jawaban lihatlah pada kolom 05.
+                Pada pemilihan jawaban lihatlah pada kolom 05.
                 Kolom ini terdiri atas angka-angka 1 sampai 9 dan 0.
 
-                Untuk menunjukkan jawaban suatu soal, maka coretlah angka-angka yang terdapat di dalam jawaban itu.
-                Keurutan angka jawaban tidak perlu dihiraukan.
+                Untuk menunjukkan jawaban suatu soal, maka pilhlah angka-angka yang terdapat di dalam jawaban itu.
+                Keurutan angka jawaban perlu diperhatikan.
 
                 Pada contoh 05 jawaban ialah 75.
-                Oleh karena itu, pada lembar jawaban di belakang contoh 05, angka 7 dan 5 harus dicoret.
+                Oleh karena itu, pada pemilihan jawaban di bawah soal contoh 05, angka 7 dan 5 harus dipilih.
 
                 05)  1  2  3  4  5  6  7  8  9  0
 
@@ -220,13 +220,16 @@ class SubtestSeeder extends Seeder
 
                 Jawabannya ialah: 60
 
-                Maka untuk menunjukkan jawaban itu angka 6 dan 0 yang seharusnya dicoret.
-                "
+                Maka untuk menunjukkan jawaban itu angka 6 dan 0 yang seharusnya dipilih.
+                ",
+
+            'instruction_image' => 'contoh-inputan-jawaban05 dan 06.png'
+
         ]);
 
         Subtest::create([
             'subtest_name' => 'Subtest 06',
-            'code' => 'RA',          // ← tambahkan ini
+            'code' => 'ZR',          // ← tambahkan ini
             'instruction_duration' => 0,
             'question_duration' => 1,
             'order' => 6,
@@ -237,7 +240,7 @@ class SubtestSeeder extends Seeder
                 Pada persoalan berikut akan diberikan deret angka.
                 Setiap deret tersusun menurut suatu aturan yang tertentu dan dapat dilanjutkan menurut aturan itu.
 
-                Carilah untuk setiap deret angka berikutnya dan coretlah jawaban saudara pada lembar jawaban di belakang nomor soal yang sesuai.
+                Carilah untuk setiap deret angka berikutnya dan pilhlah angka-angka yang sesuai dengan jawaban anda.
 
                 Contoh 06
 
@@ -246,7 +249,7 @@ class SubtestSeeder extends Seeder
                 Pada deret ini angka berikutnya selalu didapat jika angka di depannya ditambah dengan 2.
                 Maka jawabannya ialah 16.
 
-                Oleh karena itu, pada lembar jawaban di belakang contoh 06, angka 1 dan 6 harus dicoret.
+                Oleh karena itu, pada pilhan angka jawaban di bawah soal contoh 06, angka 1 dan 6 harus dipilih.
 
                 06)  1  2  3  4  5  6  7  8  9  0
 
@@ -258,15 +261,18 @@ class SubtestSeeder extends Seeder
 
                 Jawaban contoh ini ialah: 10.
 
-                Maka dari itu angka 1 dan 0 seharusnya yang dicoret.
+                Maka dari itu angka 1 dan 0 seharusnya yang dipilih.
 
                 Kadang-kadang pada beberapa soal harus pula dikalikan atau dibagi.
-                "
+                ",
+
+            'instruction_image' => 'contoh-inputan-jawaban05 dan 06.png'
+
         ]);
 
         Subtest::create([
             'subtest_name' => 'Subtest 07',
-            'code' => 'ZR',          // ← tambahkan ini
+            'code' => 'FA',          // ← tambahkan ini
             'instruction_duration' => 0,
             'question_duration' => 1,
             'order' => 7,
@@ -303,7 +309,7 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 08',
-            'code' => 'FA',          // ← tambahkan ini
+            'code' => 'WU',          // ← tambahkan ini
             'instruction_duration' => 0,
             'question_duration' => 1,
             'order' => 8,
@@ -359,7 +365,7 @@ class SubtestSeeder extends Seeder
 
         Subtest::create([
             'subtest_name' => 'Subtest 09',
-            'code' => 'WU',          // ← tambahkan ini
+            'code' => 'ME',          // ← tambahkan ini
             'instruction_duration' => 0,
             'question_duration' => 1,
             'order' => 9,
