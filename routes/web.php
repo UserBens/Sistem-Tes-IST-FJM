@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\QuestionController;
@@ -10,6 +11,7 @@ use App\Models\Participants;
 use App\Models\Question;
 use App\Models\Subtest;
 use App\Models\TestAttempts;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -19,9 +21,9 @@ Route::post('/login', [LoginController::class, 'loginProcess'])->name('login.pro
 
 Route::middleware(['check.login', 'check.admin'])->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('dashboard.index');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'dashboardIndex'])->name('dashboard');
+    Route::get('/admin/detail/{id}', [DashboardController::class, 'dashboardDetail'])
+    ->name('dashboard.detail');
 });
 
 Route::middleware('check.login')->group(function () {
