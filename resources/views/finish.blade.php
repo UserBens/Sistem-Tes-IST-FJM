@@ -31,14 +31,14 @@
                     Terima kasih sudah mengerjakan tes ini
                 </p>
 
-                <p class="mt-3 font-semibold text-gray-700">
+                {{-- <p class="mt-3 font-semibold text-gray-700">
                     {{ $participant->name ?? 'Peserta' }}
-                </p>
+                </p> --}}
 
             </div>
 
 
-            @if ($istResult)
+            {{-- @if ($istResult)
 
                 <!-- IQ BOX -->
                 <div class="mb-6 p-6 bg-indigo-50 border border-indigo-200 rounded-xl text-center">
@@ -170,7 +170,6 @@
 
             @endif
 
-
             <!-- Tombol -->
             <div class="flex flex-col sm:flex-row gap-3 mt-8">
 
@@ -184,7 +183,7 @@
                     ✅ Selesai
                 </a>
 
-            </div>
+            </div> --}}
 
 
             <!-- Logout -->
