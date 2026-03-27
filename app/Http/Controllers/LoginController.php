@@ -13,6 +13,22 @@ class LoginController extends Controller
 {
     public function indexLogin()
     {
+        if (session()->has('is_login')) {
+
+            // kalau admin
+            if (session()->has('is_admin')) {
+                return redirect()->route('dashboard');
+            }
+
+            // kalau participant → ke halaman terakhir
+            if (session()->has('last_url')) {
+                return redirect(session('last_url'));
+            }
+
+            // fallback
+            return redirect(session('last_url', route('participant.create')));
+        }
+
         return view('login.index');
     }
 

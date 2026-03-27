@@ -17,6 +17,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'test.flow' => \App\Http\Middleware\TestFlowMiddleware::class,
             'check.participant' => \App\Http\Middleware\EnsureParticipantFilled::class,
             'check.admin' => CheckAdmin::class,
+            'check.participant.only' => \App\Http\Middleware\CheckParticipantOnly::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

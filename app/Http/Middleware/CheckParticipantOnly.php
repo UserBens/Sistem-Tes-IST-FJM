@@ -6,24 +6,19 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckLogin
+class CheckParticipantOnly
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-
     public function handle(Request $request, Closure $next)
     {
-        if (!session()->has('is_login')) {
-            return redirect()->route('index.login')
-                ->with('error', 'Silahkan login terlebih dahulu.');
-        }
-
-        // simpan url terakhir (kecuali login & logout)
-        if (!$request->is('/') && !$request->is('login')) {
-            session(['last_url' => url()->current()]);
+        // kalau admin → blok
+        if (session()->has('is_admin')) {
+            return redirect()->route('dashboard')
+                ->with('error', 'Admin tidak boleh mengakses halaman participant.');
         }
 
         return $next($request);

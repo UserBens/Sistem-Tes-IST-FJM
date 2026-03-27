@@ -97,14 +97,24 @@
                         <label class="block text-sm font-medium text-gray-700 mb-2">
                             Jenis Kelamin
                         </label>
-                        <select name="gender"
-                            class="w-full px-4 py-3 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-300 transition">
-                            <option value="">-- Pilih Jenis Kelamin --</option>
-                            <option value="Laki-laki" {{ old('gender') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki
-                            </option>
-                            <option value="Perempuan" {{ old('gender') == 'Perempuan' ? 'selected' : '' }}>Perempuan
-                            </option>
-                        </select>
+                        <div class="relative">
+                            <select name="gender"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-indigo-300 transition bg-white pr-10">
+                                <option value="">-- Pilih Jenis Kelamin --</option>
+                                <option value="Laki-laki" {{ old('gender') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki
+                                </option>
+                                <option value="Perempuan" {{ old('gender') == 'Perempuan' ? 'selected' : '' }}>Perempuan
+                                </option>
+                            </select>
+                            <!-- Custom arrow -->
+                            <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                        </div>
                         @error('gender')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror

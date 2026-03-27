@@ -8,140 +8,163 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen p-6">
+<body class="bg-gradient-to-br from-blue-50 to-indigo-95 min-h-screen p-6">
 
     <!-- Header -->
     <div class="flex justify-between items-center mb-6">
-        <h1 class="text-2xl font-bold text-gray-800">
-            Dashboard Admin
-        </h1>
-
+        <div>
+            <h1 class="text-2xl font-bold text-gray-800">Dashboard Admin</h1>
+            <p class="text-sm text-gray-500 mt-0.5">Sistem Informasi Hasil Tes IST</p>
+        </div>
         <form action="{{ route('logout') }}" method="POST">
             @csrf
-            <button class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
+            <button class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition text-sm font-medium">
                 Logout
             </button>
         </form>
     </div>
 
-    <!-- Statistik -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-
-        <!-- Total Peserta -->
-        <div class="bg-white p-6 rounded-2xl shadow">
-            <h2 class="text-gray-500 text-sm">Total Peserta</h2>
-            <p class="text-3xl font-bold text-indigo-600 mt-2">
-                {{ $totalPeserta }}
-            </p>
-        </div>
-
-        <!-- Rata-rata IQ -->
-        <div class="bg-white p-6 rounded-2xl shadow">
-            <h2 class="text-gray-500 text-sm">Rata-rata IQ</h2>
-            <p class="text-3xl font-bold text-indigo-600 mt-2">
-                {{ $avgIq ?? '-' }}
-            </p>
-        </div>
-
-    </div>
-
     <!-- Tabel Data -->
-    <div class="bg-white rounded-2xl shadow p-6">
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
 
-        <h2 class="text-lg font-semibold text-gray-700 mb-4">
-            Data Hasil Tes Peserta
-        </h2>
-        <div class="bg-white rounded-2xl shadow p-6 mb-6">
+        <div class="flex items-center justify-between mb-5">
+            <div>
+                <h2 class="text-base font-bold text-gray-800">Data Hasil Tes Peserta</h2>
+                <p class="text-xs text-gray-400 mt-0.5">Daftar seluruh peserta yang telah menyelesaikan tes</p>
+            </div>
+        </div>
 
-            <form method="GET" class="grid md:grid-cols-4 gap-4">
+        <!-- Filter -->
+        <form method="GET" class="grid md:grid-cols-4 gap-3 mb-5">
+            <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama peserta..."
+                class="px-4 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300">
 
-                <!-- Cari Nama -->
-                <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama peserta..."
-                    class="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-300">
+            <select name="iq_category"
+                class="px-4 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 text-gray-600">
+                <option value="">Semua Kategori</option>
+                <option value="Very Superior" {{ request('iq_category') == 'Very Superior' ? 'selected' : '' }}>Very
+                    Superior</option>
+                <option value="Superior" {{ request('iq_category') == 'Superior' ? 'selected' : '' }}>Superior</option>
+                <option value="High Average" {{ request('iq_category') == 'High Average' ? 'selected' : '' }}>High
+                    Average</option>
+                <option value="Average" {{ request('iq_category') == 'Average' ? 'selected' : '' }}>Average</option>
+                <option value="Below Average" {{ request('iq_category') == 'Below Average' ? 'selected' : '' }}>Below
+                    Average</option>
+            </select>
 
-                <!-- Filter Kategori -->
-                <select name="iq_category" class="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-300">
-                    <option value="">Semua Kategori</option>
-                    <option value="Very Superior">Very Superior</option>
-                    <option value="Superior">Superior</option>
-                    <option value="Average">Average</option>
-                    <option value="Below Average">Below Average</option>
-                </select>
+            <input type="date" name="tanggal_tes" value="{{ request('tanggal_tes') }}"
+                class="px-4 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 text-gray-600">
 
-                <!-- Tanggal Tes -->
-                <input type="date" name="tanggal_tes" value="{{ request('tanggal_tes') }}"
-                    class="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-300">
-
-                <!-- Button -->
-                <button class="bg-indigo-600 text-white rounded-lg px-4 py-2 hover:bg-indigo-700">
+            <div class="flex gap-2">
+                <button type="submit"
+                    class="flex-1 flex items-center justify-center gap-2 bg-indigo-600 text-white rounded-xl px-4 py-2 text-sm font-medium hover:bg-indigo-700 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L13 13.414V19a1 1 0 01-.553.894l-4 2A1 1 0 017 21v-7.586L3.293 6.707A1 1 0 013 6V4z" />
+                    </svg>
                     Filter
                 </button>
+                @if (request('search') || request('iq_category') || request('tanggal_tes'))
+                    <a href="{{ route('dashboard') }}"
+                        class="flex items-center justify-center px-3 py-2 border border-gray-200 rounded-xl text-sm text-gray-500 hover:bg-gray-50 transition">
+                        ✕
+                    </a>
+                @endif
+            </div>
+        </form>
 
-            </form>
-
-        </div>
-        <div class="overflow-x-auto">
-            <table class="w-full text-sm text-left border">
+        <!-- Tabel -->
+        <div class="overflow-x-auto rounded-xl border border-gray-300">
+            <table class="w-full text-sm text-left">
                 <thead class="bg-indigo-600 text-white">
                     <tr>
-                        <th class="px-4 py-3">No</th>
-                        <th class="px-4 py-3">Nama</th>
-                        <th class="px-4 py-3">Total RW</th>
-                        <th class="px-4 py-3">Total SW</th>
-                        <th class="px-4 py-3">IQ</th>
-                        <th class="px-4 py-3">Kategori</th>
-                        <th class="px-4 py-3">Dominasi</th>
-                        <th class="px-4 py-3">Tanggal Tes</th>
-                        <th class="px-4 py-3">Aksi</th>
+                        <th class="px-4 py-3 font-semibold">No</th>
+                        <th class="px-4 py-3 font-semibold">Nama</th>
+                        <th class="px-4 py-3 font-semibold">Total RW</th>
+                        <th class="px-4 py-3 font-semibold">Total SW</th>
+                        <th class="px-4 py-3 font-semibold">IQ</th>
+                        <th class="px-4 py-3 font-semibold">Kategori</th>
+                        <th class="px-4 py-3 font-semibold">Dominasi</th>
+                        <th class="px-4 py-3 font-semibold">Tanggal Tes</th>
+                        <th class="px-4 py-3 font-semibold">Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="divide-y divide-gray-100">
                     @forelse ($results as $index => $item)
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="px-4 py-3">{{ $results->firstItem() + $index }}</td>
-
-                            <td class="px-4 py-3">
+                        <tr class="hover:bg-indigo-50/40 transition-colors">
+                            <td class="px-4 py-3 text-gray-500">{{ $results->firstItem() + $index }}</td>
+                            <td class="px-4 py-3 font-medium text-gray-800">
                                 {{ $item->participant->name ?? '-' }}
                             </td>
-                            <td class="px-4 py-3">{{ $item->total_rw }}</td>
-                            <td class="px-4 py-3">{{ $item->total_sw }}</td>
-                            <td class="px-4 py-3 font-semibold text-indigo-600">
-                                {{ $item->iq }}
+                            <td class="px-4 py-3 text-gray-600">{{ $item->total_rw }}</td>
+                            <td class="px-4 py-3 text-gray-600">{{ $item->total_sw }}</td>
+                            <td class="px-4 py-3">
+                                <span class="font-bold text-indigo-600 text-base">{{ $item->iq }}</span>
                             </td>
                             <td class="px-4 py-3">
-                                <span class="px-2 py-1 rounded-full text-xs bg-indigo-100 text-indigo-700">
-                                    {{ $item->iq_category }}
+                                @php
+                                    $cat = $item->iq_category;
+                                    $color = match ($cat) {
+                                        'Very Superior' => 'bg-purple-100 text-purple-700',
+                                        'Superior' => 'bg-blue-100 text-blue-700',
+                                        'High Average' => 'bg-indigo-100 text-indigo-700',
+                                        'Average' => 'bg-green-100 text-green-700',
+                                        'Below Average' => 'bg-rose-100 text-rose-600',
+                                        default => 'bg-gray-100 text-gray-600',
+                                    };
+                                @endphp
+                                <span class="px-2.5 py-1 rounded-full text-xs font-semibold {{ $color }}">
+                                    {{ $cat }}
                                 </span>
                             </td>
                             <td class="px-4 py-3">
-                                {{ $item->dominasi }}
+                                <span
+                                    class="px-2.5 py-1 rounded-full text-xs font-medium
+                                    {{ $item->dominasi == 'Eksak' ? 'bg-amber-100 text-amber-700' : 'bg-teal-100 text-teal-700' }}">
+                                    {{ $item->dominasi }}
+                                </span>
                             </td>
-                            <td class="px-4 py-3">
+                            <td class="px-4 py-3 text-gray-500 text-xs">
                                 {{ $item->participant->test_finished_at
                                     ? \Carbon\Carbon::parse($item->participant->test_finished_at)->translatedFormat('d F Y H:i')
                                     : '-' }}
                             </td>
                             <td class="px-4 py-3">
                                 <button onclick='openModal(@json($item))'
-                                    class="bg-indigo-500 text-white px-3 py-1 rounded-lg text-xs hover:bg-indigo-600">
+                                    class="flex items-center gap-1.5 bg-indigo-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-indigo-600 transition">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
                                     Detail
                                 </button>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="7" class="text-center py-6 text-gray-500">
-                                Belum ada data hasil tes
+                            <td colspan="9" class="text-center py-12 text-gray-400">
+                                <svg class="w-10 h-10 mx-auto mb-3 text-gray-300" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                <p class="text-sm">Belum ada data hasil tes</p>
                             </td>
                         </tr>
                     @endforelse
                 </tbody>
             </table>
-            {{ $results->links() }}
+        </div>
 
+        <!-- Pagination -->
+        <div class="mt-4">
+            {{ $results->links() }}
         </div>
 
     </div>
+
     <!-- MODAL -->
     <div id="modalDetail"
         class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4 overflow-y-auto">

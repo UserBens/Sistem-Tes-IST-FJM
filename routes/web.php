@@ -23,12 +23,15 @@ Route::middleware(['check.login', 'check.admin'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'dashboardIndex'])->name('dashboard');
     Route::get('/admin/detail/{id}', [DashboardController::class, 'dashboardDetail'])
-    ->name('dashboard.detail');
+        ->name('dashboard.detail');
 });
 
 Route::middleware('check.login')->group(function () {
-
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+});
+
+
+Route::middleware(['check.login', 'check.participant.only'])->group(function () {
 
     Route::get('/participant/form', [ParticipantController::class, 'create'])->name('participant.create');
     Route::post('/participant/form', [ParticipantController::class, 'store'])->name('participant.store');
