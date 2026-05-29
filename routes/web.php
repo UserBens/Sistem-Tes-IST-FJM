@@ -31,7 +31,7 @@ Route::middleware('check.login')->group(function () {
 });
 
 
-Route::middleware(['check.login', 'check.participant.only'])->group(function () {
+Route::middleware(['check.login', 'check.participant.only', 'seb'])->group(function () {
 
     Route::get('/participant/form', [ParticipantController::class, 'create'])->name('participant.create');
     Route::post('/participant/form', [ParticipantController::class, 'store'])->name('participant.store');

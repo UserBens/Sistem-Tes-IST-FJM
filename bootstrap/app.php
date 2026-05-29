@@ -18,6 +18,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'check.participant' => \App\Http\Middleware\EnsureParticipantFilled::class,
             'check.admin' => CheckAdmin::class,
             'check.participant.only' => \App\Http\Middleware\CheckParticipantOnly::class,
+            'seb' => \App\Http\Middleware\EnsureSafeExamBrowser::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

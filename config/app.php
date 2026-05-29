@@ -123,4 +123,6 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'seb_config_key' => env('SEB_CONFIG_KEY'),
+
 ];
